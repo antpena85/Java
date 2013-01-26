@@ -1,0 +1,36 @@
+package com.fdm.tradingplatform.model;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.storage.iDao;
+
+public class UserClientToken {
+	private static Logger logger = Logger.getLogger("log");
+
+	private String username;
+	private int hashCode;
+	private UserLoginMap userLoginMap = UserLoginMap.getInstance();
+
+	public UserClientToken(String username, iDao userDao, iDao roleDao) throws TradingPlatformException {
+
+		this.username = username;
+		String hashToken = (username + String.valueOf(System.currentTimeMillis()));
+
+		this.hashCode = hashToken.hashCode();
+
+		userLoginMap.addUserToLoginMap(this, userDao,roleDao);
+		logger.debug("created usertoken client token for:" + username);
+	}
+
+	public String getUsername() {
+		logger.trace("getUserName()=" + username);
+		return username;
+	}
+
+	public int getHashCode() {
+		logger.trace("getHashCode()=" + hashCode);
+		return hashCode;
+	}
+
+}

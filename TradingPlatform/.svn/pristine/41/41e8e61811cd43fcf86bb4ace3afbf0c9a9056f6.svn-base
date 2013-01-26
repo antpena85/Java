@@ -1,0 +1,36 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.UserRequestVO;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class AssignUserRequestAction extends FormatRequests implements iDisplayAction {
+
+	private static Logger logger = Logger.getLogger("log");
+
+	@Override
+	public void execute(UserClientToken userClientToken, UserInputVO userInputVO, AdminManager adminManager, iView displayManager) throws TradingPlatformException {
+		logger.trace("Start execute");
+
+		Map<String, UserRequestVO> userRequests = adminManager.getUserRequests("new");
+
+		if (!userRequests.isEmpty()) {
+			displayManager.displayMessage(formatRequests(userRequests));
+			String requestNumber = displayManager.checkInput(getRegexFromRequests(userRequests));
+			adminManager.ChangeUserRequestStatus(requestNumber, userClientToken.getUsername(), "accepted");
+			displayManager.displayMessage("User request Number:" + requestNumber + "  has been assigned to " + userClientToken.getUsername());
+		} else
+			displayManager.displayMessage("There are no new User requests at the moment.\n");
+
+		logger.trace("End execute");
+
+	}
+
+}

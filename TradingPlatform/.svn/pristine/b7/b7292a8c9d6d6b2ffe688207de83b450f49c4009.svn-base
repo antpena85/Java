@@ -1,0 +1,37 @@
+package com.fdm.tradingplatform.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.model.storage.Databean;
+
+public class UserRequestVO implements Databean {
+	private static Logger logger = Logger.getLogger("log");
+
+	private Map<String, String> userRequestMap;
+
+	public UserRequestVO() {
+		userRequestMap = new HashMap<String, String>();
+		logger.trace("new UserRequestVO");
+	}
+
+	public UserRequestVO(Map<String, String> map) {
+
+		userRequestMap = new HashMap<String, String>(map);
+	}
+
+	public void setAttribute(String attribute, String value) {
+		if(attribute==null || value==null)
+			throw new NullPointerException(TPMessage.NULLPOINTER_ERROR_MESSAGE);
+		if(attribute.length() < 1)
+			throw new IllegalArgumentException(TPMessage.ILLEAGAL_ARGUMENT_MESSAGE);
+
+		userRequestMap.put(attribute, value);
+	}
+
+	@Override
+	public String getAttribute(String attribute) { return userRequestMap.get(attribute); }
+
+}

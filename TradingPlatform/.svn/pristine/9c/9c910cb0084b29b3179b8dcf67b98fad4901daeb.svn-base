@@ -1,0 +1,56 @@
+package com.fdm.tradingplatform.model;
+
+import java.util.Map;
+
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.storage.Databean;
+import com.fdm.tradingplatform.model.storage.iDao;
+
+public class TPMessage {
+	static Context context = Context.getInstance();
+	private static DaoFactory daoFactory = new DaoFactory(context);
+
+	public static final String CONTACT_ADMINISTRATOR_MESSAGE = "There has been an error, please try again or contact the Systems Administrator.\n";
+	public static final String USER_NULL_VALUE = "A Unknown value has tried to be persisted into storage, please try again or contact the Systems Administrator.";
+	public static final String USERNAME_ERROR_MESSAGE = "\n-Usernames must contain between 8-15 alphanumeric characters and start with a english charachter.\n";
+	public static final String PASSWORD_ERROR_MESSAGE = "\n-Passwords must comply with the following:\n" + "\t1. Have at between 8-15 charachters.\n" + "\t2. Have at least one capital letter.\n"
+			+ "\t3. Have at least one letter.\n" + "\t4. Have at least one number.\n";
+
+	public static final String UPDATE_ERROR = "\nThere has been an error updating a user, please make sure the user exists.";
+	public static final String AVAILIABLE_ROLES = getAvailiableRolesMessage(getRoles());
+	public static final String USER_NOT_FOUND = "User was not found.\n";
+	public static final String USER_EXISTS = "Someone already has that username. Try another?\n";
+	public static final String DATABASE_ERROR = "The Database is not availiable at the moment, please contact Systems Administrator.";
+	public static final String SQL_ERROR_MESSAGE = "There has been an Unexpected error. Please try again or contact the Systems Administrator.";
+	public static final String RUNTIME_ERROR_MESSAGE = "There has been an Unexpected Error, please contact the Systems Administrator.";
+	public static final String NULLPOINTER_ERROR_MESSAGE = "There was an error storing data,please try again.";
+	public static final String ILLEAGAL_ARGUMENT_MESSAGE = "A data value whitch is not allowed cannot be stored, pleaqse try again.";
+
+	private static String getAvailiableRolesMessage(Map<String, Databean> roles) {
+		StringBuffer rolenameMessage = new StringBuffer();
+		int counter = 0;
+
+		rolenameMessage.append("\nThe role does not exist, please try one of the following:\n\n");
+
+		for(String key : roles.keySet()){
+			RoleVO roleVO = (RoleVO) roles.get(key);
+			rolenameMessage.append(++counter);
+			rolenameMessage.append(".");
+			rolenameMessage.append(roleVO.getName());
+			rolenameMessage.append("\n");
+		}
+		return rolenameMessage.toString();
+	}
+
+	
+	
+	private static Map<String, Databean> getRoles() {
+
+		iDao roleDao = daoFactory.getInstance(DaoFactory.TypeOfInstance.ROLE);
+		try {
+			return  roleDao.selectAll();
+		} catch (TradingPlatformException e) {
+			throw new RuntimeException(TPMessage.RUNTIME_ERROR_MESSAGE);
+		}
+	}
+}

@@ -1,0 +1,9 @@
+package com.fdm.tradingplatform.adminModule.view.ConsoleView;
+
+public interface iView {
+	
+	public UserInputVO displayMenuAndgetInput();
+	public void displayMessage(String message);
+	public String checkInput(String regex);
+	
+}

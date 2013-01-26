@@ -1,0 +1,19 @@
+package com.fdm.tradingplatform.exception;
+
+public class UsernamePolicyException extends PolicyException{
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public UsernamePolicyException(String message) {
+		
+		super(message);
+		
+	}
+	
+	
+
+}

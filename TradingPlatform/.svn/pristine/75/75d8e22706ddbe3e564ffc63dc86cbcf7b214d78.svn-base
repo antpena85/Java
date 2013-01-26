@@ -1,0 +1,93 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class AdminController {
+	private static Logger logger = Logger.getLogger("log");
+
+	private iView displayManager;
+	private AdminManager adminManager;
+	private boolean isRunning;
+	private Helper helper;
+	private UserClientToken userClientToken;
+	private UserInputVO userInputVO;
+	private iAdminCommand action;
+	private Map<Integer, iAdminCommand> command;
+
+	public AdminController(UserClientToken userClientToken, iView viewManager, AdminManager adminManager) {
+		this.userClientToken = userClientToken;
+		this.displayManager = viewManager;
+		this.adminManager = adminManager;
+		logger.trace("new AdminController");
+	}
+
+
+	public void setup() {
+		logger.trace("Start setup()");
+		this.helper = new Helper(this.displayManager);
+
+		command = new HashMap<Integer, iAdminCommand>();
+		command.put(Integer.valueOf(1), new AddUserAction());
+		command.put(Integer.valueOf(2), new RemoveUserAction());
+		command.put(Integer.valueOf(3), new BanUserAction());
+		command.put(Integer.valueOf(4), new UnBanUserAction());
+		command.put(Integer.valueOf(5), new UpdateUserDetailsAction());
+		command.put(Integer.valueOf(6), new ViewOutstandingUserRequestsAction());
+		command.put(Integer.valueOf(7), new ViewAssignedUserRequestsAction());
+		command.put(Integer.valueOf(8), new ViewCompletedUserRequestsAction());
+		command.put(Integer.valueOf(9), new AssignUserRequestAction());
+		command.put(Integer.valueOf(10), new MarkAsCompleteUserRequestAction());
+		command.put(Integer.valueOf(11), new LogoutUserAction());
+
+		if (helper.checkPermission(userClientToken, "adminScreen")) {
+			this.isRunning = true;
+			run();
+		} else
+			this.isRunning = false;
+
+		logger.trace("End startup()");
+	}
+
+	public void run() {
+		logger.trace("start run()");
+
+		while (this.isRunning) {
+			userInputVO = displayManager.displayMenuAndgetInput();
+			this.action = command.get(Integer.valueOf(userInputVO.getInputType()));
+			if (helper.checkPermission(userClientToken, action.getFunctionDescription()));
+				actionUserInput(userInputVO);
+
+		}
+		
+		logger.trace("End run()");
+	}
+
+	private void actionUserInput(UserInputVO userInputVO) {
+		logger.trace("Start actionUserInput() with option:" + userInputVO.getInputType());
+
+		if (userInputVO.getInputType() == 11) {
+			this.isRunning = false;
+		}
+
+		try {
+			action.execute(userClientToken, userInputVO, adminManager, displayManager);
+		} catch (TradingPlatformException e) {
+			displayManager.displayMessage(e.getMessage());
+		} catch (Exception e) {
+			displayManager.displayMessage(e.getMessage());
+		}
+
+		logger.trace("End actionUserInput(), isRunning=" + isRunning);
+	}
+
+}

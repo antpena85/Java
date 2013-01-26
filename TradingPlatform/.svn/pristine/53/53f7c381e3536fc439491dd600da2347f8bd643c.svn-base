@@ -1,0 +1,156 @@
+<requests>
+  <request>
+    <requestNumber>3</requestNumber>
+    <administrator>rami</administrator>
+    <requestTitle>Update Role</requestTitle>
+    <requestor>iris</requestor>
+    <username>-</username>
+    <password>-</password>
+    <rolename>broker</rolename>
+    <status>completed</status>
+    <date-registered>1/2/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/02 14:34:08</date-updated>
+    <additionalInfo>-</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>2</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>Update user Password</requestTitle>
+    <requestor>iris</requestor>
+    <username>-</username>
+    <password>flower</password>
+    <rolename>-</rolename>
+    <status>completed</status>
+    <date-registered>1/2/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/13 18:07:40</date-updated>
+    <additionalInfo>-</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>1</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>Add new user</requestTitle>
+    <requestor>amanda</requestor>
+    <username>micky</username>
+    <password>mouse</password>
+    <rolename>broker</rolename>
+    <status>completed</status>
+    <date-registered>1/1/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/07 22:09:48</date-updated>
+    <additionalInfo>-</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>10</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>Ban User</requestTitle>
+    <requestor>iris</requestor>
+    <username>mookie</username>
+    <password>-</password>
+    <rolename>-</rolename>
+    <status>accepted</status>
+    <date-registered>1/1/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/24 15:14:27</date-updated>
+    <additionalInfo>We need him out!</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>7</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>Update username</requestTitle>
+    <requestor>amanda</requestor>
+    <username>amnda-2013</username>
+    <password>-</password>
+    <rolename>-</rolename>
+    <status>accepted</status>
+    <date-registered>1/2/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/24 15:10:43</date-updated>
+    <additionalInfo>-</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>6</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>update username</requestTitle>
+    <requestor>iris</requestor>
+    <username>iris25</username>
+    <password>-</password>
+    <rolename>-</rolename>
+    <status>completed</status>
+    <date-registered>1/2/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/09 15:24:13</date-updated>
+    <additionalInfo>-</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>5</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>Update user Password</requestTitle>
+    <requestor>egg</requestor>
+    <username>-</username>
+    <password>flower</password>
+    <rolename>-</rolename>
+    <status>completed</status>
+    <date-registered>1/2/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/20 16:54:48</date-updated>
+    <additionalInfo>-</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>4</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>Update username</requestTitle>
+    <requestor>iris</requestor>
+    <username>iris123</username>
+    <password>-</password>
+    <rolename>-</rolename>
+    <status>accepted</status>
+    <date-registered>1/2/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/20 17:45:26</date-updated>
+    <additionalInfo>-</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>9</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>Update pasword</requestTitle>
+    <requestor>iris</requestor>
+    <username>vinny</username>
+    <password>CoffeHouse1</password>
+    <rolename>-</rolename>
+    <status>accepted</status>
+    <date-registered>1/8/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/24 14:17:50</date-updated>
+    <additionalInfo>Thank you!!!</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>8</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>Update role</requestTitle>
+    <requestor>iris</requestor>
+    <username>-</username>
+    <password>-</password>
+    <rolename>shareHolder</rolename>
+    <status>accepted</status>
+    <date-registered>2/2/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/24 14:16:47</date-updated>
+    <additionalInfo>-</additionalInfo>
+  </request>
+  <request>
+    <requestNumber>11</requestNumber>
+    <administrator>mookie</administrator>
+    <requestTitle>Add User</requestTitle>
+    <requestor>vinny</requestor>
+    <username>blank123</username>
+    <password>Blank123</password>
+    <rolename>shareholder</rolename>
+    <status>accepted</status>
+    <date-registered>8/2/2013</date-registered>
+    <date-completed>-</date-completed>
+    <date-updated>2013/01/23 08:17:54</date-updated>
+    <additionalInfo>I appreciate it</additionalInfo>
+  </request>
+</requests>

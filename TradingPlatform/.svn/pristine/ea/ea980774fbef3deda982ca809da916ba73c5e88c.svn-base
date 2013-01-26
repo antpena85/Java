@@ -1,0 +1,75 @@
+package com.fdm.tradingplatform.model.storage;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.log4j.Logger;
+import com.fdm.tradingplatform.model.UserRequestVO;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class UserRequestXmlDao extends XmlDao implements iDao {
+
+	private static Logger logger = Logger.getLogger("log");
+
+	private static iDao firstInstance = null;
+
+	private UserRequestXmlDao(String xmlFilePath) {
+
+		super(xmlFilePath, "requests", "request", "requestFields");
+		loadXml();
+
+		logger.debug("new UserXmlDao");
+	}
+
+	public static iDao getInstance(String xmlFilePath) {
+
+		if (firstInstance == null)
+			firstInstance = new UserRequestXmlDao(xmlFilePath);
+
+		return firstInstance;
+	}
+
+	@Override
+	public Databean select(String primaryKey) {
+
+		return (Databean) storage.get(primaryKey);
+
+	}
+
+	@Override
+	public void insert(Databean bean) throws TradingPlatformException {
+		logger.trace("Start insert()");
+
+		storage.put(bean.getAttribute("requestNumber"), bean);
+		saveXml();
+
+		logger.trace("End insert()");
+	}
+
+	@Override
+	public void update(Databean bean) throws TradingPlatformException {
+
+		insert(bean);
+		saveXml();
+
+	}
+
+	@Override
+	public void delete(String primaryKey) throws TradingPlatformException {
+
+		storage.remove(primaryKey);
+		saveXml();
+	}
+
+	public Map<String, Databean> selectAll() {
+		return new HashMap<String, Databean>(storage);
+	}
+
+	@Override
+	protected void storeElement(Map xmlElement) {
+
+		logger.debug("Add to Storage:" + xmlElement.get("requestNumber"));
+		storage.put((String) xmlElement.get("requestNumber"), new UserRequestVO(xmlElement));
+
+	}
+
+}

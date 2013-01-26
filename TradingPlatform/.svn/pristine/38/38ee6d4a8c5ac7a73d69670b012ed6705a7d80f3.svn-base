@@ -1,0 +1,55 @@
+/*
+ * @author Rami Stefanidis
+ * 
+ **********************************************************************
+ * This code and its derivatives belong to FDM Group PLC and may not be
+ * copied,reproduced, amended or used in any way without permission
+ * from FDM group PLC
+ **********************************************************************
+ * Current Version
+ * ===============
+ * Revision:  1.0
+ * Date/time: 26/01/2013
+ **********************************************************************
+ */
+
+
+package com.fdm.tradingplatform.model;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.model.storage.Databean;
+
+public class UserRequestVO implements Databean {
+	private static Logger logger = Logger.getLogger("log");
+
+	private Map<String, String> userRequestMap;
+
+	public UserRequestVO() {
+		userRequestMap = new HashMap<String, String>();
+		logger.trace("new UserRequestVO");
+	}
+
+	public UserRequestVO(Map<String, String> map) {
+
+		userRequestMap = new HashMap<String, String>(map);
+	}
+
+	public void setAttribute(String attribute, String value) {
+		Properties properties=TradingPlatformProperties.getInstance();
+		if(attribute==null || value==null)
+			throw new NullPointerException(properties.getProperty("NULLPOINTER_ERROR_MESSAGE"));
+		if(attribute.length() < 1)
+			throw new IllegalArgumentException(properties.getProperty("ILLEAGAL_ARGUMENT_MESSAGE"));
+
+		userRequestMap.put(attribute, value);
+	}
+
+	@Override
+	public String getAttribute(String attribute) { return userRequestMap.get(attribute); }
+
+}

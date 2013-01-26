@@ -1,0 +1,116 @@
+package com.fdm.tradingplatform.model.storage;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Map;
+
+import com.fdm.tradingplatform.model.DatabaseConnectionPool;
+import com.fdm.tradingplatform.model.UserVO;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class UserDatabaseDao extends AbstractDatabaseDao {
+
+	public UserDatabaseDao(DatabaseConnectionPool connectionPool) {
+		super(connectionPool);
+	}
+
+	@Override
+	public Databean select(String primaryKey) throws TradingPlatformException {
+		logger.info("Starting Select a new User:" + primaryKey);
+
+		UserVO userVO = new UserVO();
+
+		try {
+			connection = getDatabaseConnection();
+			statement = connection.prepareStatement(properties.getProperty("SELECT_A_SINGLE_USER"));
+			statement.setString(1, primaryKey);
+
+			ResultSet rs = statement.executeQuery();
+
+			if (rs.next()) {
+				userVO.setUsername(rs.getString(1));
+				userVO.setPassword(rs.getString(2));
+				userVO.setRolename(rs.getString(3));
+				userVO.setStatus(rs.getString(4));
+			} else
+				userVO = null;
+
+		} catch (SQLException e) {
+			logger.error(properties.getProperty("SQL_ERROR_MESSAGE"));
+			throw new TradingPlatformException(properties.getProperty("SQL_ERROR_MESSAGE"));
+
+		} finally {
+			closeDatabaseConnection();
+			logger.info("End Select a new User:" + primaryKey);
+		}
+		return (Databean) userVO;
+	}
+
+	@Override
+	public void insert(Databean bean) throws TradingPlatformException {
+		UserVO userVO = (UserVO) bean;
+		logger.info("Starting inserting a new Bean:" + bean.getAttribute("name"));
+		try {
+			connection = connectionPool.openConnection();
+			statement = connection.prepareStatement(properties.getProperty("INSERT_A_USER"));
+
+			statement.setString(1, userVO.getUsername());
+			statement.setString(2, userVO.getPassword());
+			statement.setString(3, userVO.getRolename());
+			statement.setString(4, userVO.getStatus());
+
+			statement.executeQuery();
+
+		} catch (SQLException e) {
+			logger.error("Unsuccessfull insert of a new Bean:" + bean.getAttribute("name"));
+			throw new TradingPlatformException(properties.getProperty("SQL_ERROR_MESSAGE"));
+		} finally {
+			connectionPool.returnConnection(connection);
+			logger.info("Successfully inserted a new Bean:" + bean.getAttribute("name"));
+		}
+	}
+
+	@Override
+	public void update(Databean bean) throws TradingPlatformException {
+
+		UserVO userVO = (UserVO) bean;
+		try {
+			connection = connectionPool.openConnection();
+			statement = connection.prepareStatement(properties.getProperty("UPDATE_A_USER"));
+
+			statement.setString(1, userVO.getUsername());
+			statement.setString(2, userVO.getPassword());
+			statement.setString(3, userVO.getRolename());
+			statement.setString(4, userVO.getStatus());
+			statement.setString(5, userVO.getUsername());
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new TradingPlatformException(properties.getProperty("SQL_ERROR_MESSAGE"));
+		} finally {
+			connectionPool.returnConnection(connection);
+		}
+
+	}
+
+	@Override
+	public void delete(String primaryKey) throws TradingPlatformException {
+
+		try {
+			connection = connectionPool.openConnection();
+			statement = connection.prepareStatement(properties.getProperty("DELETE_A_USER"));
+			statement.setString(1, primaryKey);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new TradingPlatformException(properties.getProperty("SQL_ERROR_MESSAGE"));
+		} finally {
+			connectionPool.returnConnection(connection);
+		}
+	}
+
+	@Override
+	public Map<String, Databean> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

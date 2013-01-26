@@ -1,0 +1,13 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+import com.fdm.tradingplatform.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.UserClientToken;
+
+public interface iDisplayAction {
+
+	public void execute(UserClientToken userClientToken, UserInputVO userInputVO, AdminManager adminManager, iView displayManager) throws TradingPlatformException;
+
+}

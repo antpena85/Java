@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<roles>
+	<role>
+		<name>administrator</name>
+		<addUser>y</addUser>
+		<removeUser>y</removeUser>
+		<changePermission>y</changePermission>
+		<userRegistration>y</userRegistration>
+		<banUser>y</banUser>
+		<updateUserDetails>y</updateUserDetails>
+		<adminScreen>y</adminScreen>
+		<unBanUser>y</unBanUser>
+		<viewUserRequest>y</viewUserRequest>
+		<assignUserRequest>y</assignUserRequest>
+		<markAsCompleteUserRequest>y</markAsCompleteUserRequest>
+	</role>
+	<role>
+		<name>shareholder</name>
+		<addUser>n</addUser>
+		<removeUser>n</removeUser>
+		<changePermission>n</changePermission>
+		<userRegistration>n</userRegistration>
+		<banUser>n</banUser>
+		<updateUserDetails>n</updateUserDetails>
+		<adminScreen>n</adminScreen>
+		<unBanUser>n</unBanUser>
+		<viewUserRequest>n</viewUserRequest>
+		<assignUserRequest>n</assignUserRequest>
+		<markAsCompleteUserRequest>n</markAsCompleteUserRequest>
+	</role>
+	<role>
+		<name>broker</name>
+		<addUser>n</addUser>
+		<removeUser>n</removeUser>
+		<changePermission>n</changePermission>
+		<userRegistration>n</userRegistration>
+		<banUser>n</banUser>
+		<updateUserDetails>n</updateUserDetails>
+		<adminScreen>n</adminScreen>
+		<unBanUser>n</unBanUser>
+		<viewUserRequest>n</viewUserRequest>
+		<assignUserRequest>n</assignUserRequest>
+		<markAsCompleteUserRequest>n</markAsCompleteUserRequest>
+	</role>
+	
+
+
+
+
+</roles>

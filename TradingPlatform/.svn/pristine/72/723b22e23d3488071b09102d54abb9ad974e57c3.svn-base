@@ -1,0 +1,70 @@
+package com.fdm.login.controller;
+
+import org.apache.log4j.Logger;
+import com.fdm.login.model.LoginManager;
+import com.fdm.login.model._LoginManager;
+import com.fdm.login.view.DisplayManager;
+import com.fdm.login.view._DisplayManager;
+import com.fdm.tradingplatform.model.Context;
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.UserVO;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class LoginController {
+	private static Logger logger = Logger.getLogger("log");
+
+	private _DisplayManager displayManager;
+	private _LoginManager loginManager;
+	private _DisplayAction action;
+	private UserClientToken userToken;
+	private Context context;
+	private boolean isRunning;
+	
+	public LoginController(Context context){
+		this.context=context;
+	}
+
+	public UserClientToken setup() {
+		logger.trace("Start setup()");
+
+		displayManager = new DisplayManager();
+		loginManager = new LoginManager(context);
+		action = new AuthenticateAction();
+		isRunning=true;
+		runApp();
+		return userToken;
+	}
+
+	public void runApp() {
+
+		while (isRunning) {
+			try {
+				actionUserInput(displayManager.displayLoginFormAndGetInput());
+			} catch (TradingPlatformException e) {
+				displayManager.displayMessageAndWaitForEnter(e.getMessage() + '\n');
+			} catch (Exception e){
+				displayManager.displayMessageAndWaitForEnter(e.getMessage() + '\n');
+			}
+		}
+
+	}
+
+	public void actionUserInput(UserVO userInputAccount) {
+
+		try {
+			userToken = action.execute(userInputAccount, loginManager,displayManager);
+
+		} catch (TradingPlatformException e) {
+			displayManager.displayMessage(e.getMessage());
+			userToken = null;
+		} catch (Exception e){
+			displayManager.displayMessage(e.getMessage());
+		}
+
+		if (userToken != null) {
+			displayManager.displayMessage("User has successfully logged in");
+			isRunning = false;
+		}
+	}
+
+}

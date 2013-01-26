@@ -1,0 +1,14 @@
+package com.fdm.tradingplatform.adminModule.view.ConsoleView;
+
+import java.util.Map;
+
+import com.fdm.tradingplatform.model.storage.Databean;
+
+public interface iView {
+	
+	public UserInputVO displayMenuAndgetInput();
+	public void displayMessage(String message);
+	public String checkInput(String regex);
+	public String formatRequestsToDisplay(Map<String, Databean> userRequests);
+	
+}

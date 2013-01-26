@@ -1,0 +1,18 @@
+package com.fdm.login.view;
+
+import com.fdm.tradingplatform.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.UserVO;
+
+public interface _DisplayManager {
+	
+	public UserVO displayLoginFormAndGetInput() throws TradingPlatformException;
+	
+
+	
+	public void displayMessage(String message);
+
+
+
+	public void displayMessageAndWaitForEnter(String string);
+
+}

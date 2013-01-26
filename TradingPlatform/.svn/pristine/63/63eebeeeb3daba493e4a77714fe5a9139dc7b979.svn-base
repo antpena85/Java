@@ -1,0 +1,25 @@
+# Define the root logger with appender file
+log4j.category.log=TRACE, rfile
+
+# Define the file appender
+log4j.appender.rfile=org.apache.log4j.RollingFileAppender
+
+# Set the name and location of the log file
+log4j.appender.rfile.File=./adminlog/adminLog.html
+
+# Set the maximum file size before rollover
+log4j.appender.rfile.MaxFileSize = 1024KB
+
+# Set the append to false, should not overwrite
+log4j.appender.rfile.Append = false
+
+# Define the layout for file appender
+log4j.appender.rfile.layout = org.apache.log4j.HTMLLayout
+
+#Set the title of the logfile
+log4j.appender.rfile.layout.Title=Trading platform log
+
+#Outputs Java file name and line number
+log4j.appender.rfile.layout.LocationInfo=true
+
+

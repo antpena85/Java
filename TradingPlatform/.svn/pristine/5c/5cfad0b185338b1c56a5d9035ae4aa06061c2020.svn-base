@@ -1,0 +1,30 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.exception.PolicyException;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class BanUserAction implements iDisplayAction {
+	private static Logger logger = Logger.getLogger("log");
+
+	@Override
+	public void execute(UserClientToken userClientToken, UserInputVO userInputVO, AdminManager adminManager, iView displayManager) throws TradingPlatformException {
+		logger.trace("Start execute");
+
+		try {
+			adminManager.banUser(userInputVO.getUsername());
+			displayManager.displayMessage("\n" + userInputVO.getUsername() + " has successfully been banned.\n");
+		} catch (PolicyException e) {
+			displayManager.displayMessage(e.getMessage());
+		}
+
+		logger.info(userClientToken.getUsername() + " has banned " + userInputVO.getUsername());
+		logger.trace("End execute");
+	}
+
+}

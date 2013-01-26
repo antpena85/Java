@@ -1,0 +1,70 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import java.util.Map;
+
+import com.fdm.tradingplatform.model.UserRequestVO;
+import com.fdm.tradingplatform.model.storage.Databean;
+
+public class FormatRequests {
+
+	protected String getRegexOptions(Map<String, Databean> userRequests) {
+		StringBuffer regex = new StringBuffer();
+		UserRequestVO userRequestVO;
+
+		for(String key : userRequests.keySet()){
+			userRequestVO = (UserRequestVO) userRequests.get(key);
+			regex.append(userRequestVO.getAttribute("requestNumber"));
+			regex.append("|");
+		}
+		return regex.toString();
+	}
+
+	protected String formatRequests(Map<String, Databean> userRequests) {
+		StringBuffer stringBuffer = new StringBuffer();
+		UserRequestVO userRequestVO;
+
+		for(String key : userRequests.keySet()){
+			userRequestVO = (UserRequestVO) userRequests.get(key);
+			stringBuffer.append("\n\n");
+			stringBuffer.append("Request Number: ");
+			stringBuffer.append(userRequestVO.getAttribute("requestNumber"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Administrator: ");
+			stringBuffer.append(userRequestVO.getAttribute("administrator"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Request Title: ");
+			stringBuffer.append(userRequestVO.getAttribute("requestTitle"));
+			stringBuffer.append('\n');
+			stringBuffer.append("Requestor: ");
+			stringBuffer.append(userRequestVO.getAttribute("requestor"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Username: ");
+			stringBuffer.append(userRequestVO.getAttribute("username"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Password: ");
+			stringBuffer.append(userRequestVO.getAttribute("password"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Rolename: ");
+			stringBuffer.append(userRequestVO.getAttribute("rolename"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Status: ");
+			stringBuffer.append(userRequestVO.getAttribute("status"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Date Registerd: ");
+			stringBuffer.append(userRequestVO.getAttribute("date-registered"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Date Updated: ");
+			stringBuffer.append(userRequestVO.getAttribute("date-updated"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Date Completed: ");
+			stringBuffer.append(userRequestVO.getAttribute("date-completed"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Additional Info: ");
+			stringBuffer.append(userRequestVO.getAttribute("additionalInfo"));
+			stringBuffer.append("\n");
+			stringBuffer.append("==============================\n");
+		}
+		return stringBuffer.toString();
+	}
+
+}

@@ -1,0 +1,43 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+import com.fdm.tradingplatform.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.UserRequestVO;
+
+public class ViewUserRequestAction extends FormatRequests implements iDisplayAction {
+
+	private static Logger logger = Logger.getLogger("log");
+
+	@Override
+	public void execute(UserClientToken userClientToken, UserInputVO userInputVO, AdminManager adminManager, iView displayManager) throws TradingPlatformException {
+		logger.trace("Start execute");
+
+		Map<String, UserRequestVO> requestsToDisplay = new HashMap<String, UserRequestVO>();
+
+		switch (userInputVO.getSecondLevelInputtype()) {
+
+		case 1:
+			requestsToDisplay = (adminManager.getUserRequests("new"));
+			break;
+		case 2:
+			requestsToDisplay = (adminManager.getAcceptedUserRequests(userClientToken.getUsername()));
+			break;
+		case 3:
+			requestsToDisplay = (adminManager.getUserRequests("completed"));
+			break;
+		}
+
+		displayManager.displayMessage(formatRequests(requestsToDisplay));
+
+		logger.trace("End execute");
+
+	}
+
+}

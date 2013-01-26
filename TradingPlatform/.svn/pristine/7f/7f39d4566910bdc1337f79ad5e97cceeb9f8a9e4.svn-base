@@ -1,0 +1,37 @@
+package com.fdm.tradingplatform.storage;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+import org.apache.log4j.Logger;
+import com.fdm.tradingplatform.model.TradingPlatformProperties;
+
+public abstract class XmlDao implements iDao {
+
+	private static Logger logger = Logger.getLogger("log");
+	protected Map<String, Databean> storage = new HashMap<String, Databean>();
+	private Properties properties = TradingPlatformProperties.getInstance();;
+	private XmlHandler xmlHandler;
+
+	public XmlDao(String xmlFileLocation, String xmlRootTag, String xmlChildTag, String propertiesVariableNameWithXmlFields) {
+
+		this.xmlHandler = new XmlHandler(xmlFileLocation, xmlRootTag, xmlChildTag, properties.getProperty(propertiesVariableNameWithXmlFields).split(";"));
+	}
+
+	protected void saveXml() {
+
+		xmlHandler.saveXml(storage);
+	}
+
+	protected void loadXml() {
+
+		Map[] xmlElements = xmlHandler.loadXml();
+
+		for (int i = 0; i < xmlElements.length; i++) {
+			storeElement(xmlElements[i]);
+		}
+	}
+
+	protected abstract void storeElement(Map xmlElement);
+
+}

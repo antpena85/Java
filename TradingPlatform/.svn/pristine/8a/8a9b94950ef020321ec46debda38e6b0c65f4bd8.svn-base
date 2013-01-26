@@ -1,0 +1,35 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+
+
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class AddUserAction  extends AbstractAdminCommand implements iAdminCommand {
+	
+	public AddUserAction() {
+		super("addUser");
+	}
+	
+	
+	@Override
+	public void execute(UserClientToken userClientToken, UserInputVO userInputVO, AdminManager adminManager, iView displayManager) throws TradingPlatformException {
+		logger.trace("Attempting to add a user." + userInputVO.getUsername());
+		
+			adminManager.addUser(userInputVO);
+			displayManager.displayMessage("\n" + userInputVO.getUsername() + " has successfully been added.\n");
+		
+
+		logger.trace("Ended Attempt to add a user" + userInputVO.getUsername());
+	}
+
+
+
+	
+
+
+
+}

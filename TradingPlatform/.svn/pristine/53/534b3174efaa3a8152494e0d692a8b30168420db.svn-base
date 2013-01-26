@@ -1,0 +1,20 @@
+package com.fdm.tradingplatform.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class XmlConnectionPool implements iConnectionPool {
+
+	Map<String, String> filePaths;
+
+	public XmlConnectionPool(Map<String, String> filePaths) {
+
+		this.filePaths = new HashMap<String, String>(filePaths);
+	}
+
+	public String getConnection(String key) {
+
+		return filePaths.get(key);
+	}
+
+}

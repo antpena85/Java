@@ -1,0 +1,77 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import com.fdm.tradingplatform.model.UserRequestVO;
+
+public class FormatRequests {
+
+	protected String getRegexFromRequests(Map<String, UserRequestVO> requestsToDisplay) {
+		StringBuffer regex = new StringBuffer();
+		UserRequestVO userRequestVO;
+		Iterator<Map.Entry<String, UserRequestVO>> requestIterator = requestsToDisplay.entrySet().iterator();
+
+		while (requestIterator.hasNext()) {
+			Entry<String, UserRequestVO> pairs =  requestIterator.next();
+			userRequestVO = (UserRequestVO) pairs.getValue();
+			regex.append(userRequestVO.getAttribute("requestNumber"));
+			regex.append("|");
+		}
+
+		return regex.toString();
+	}
+
+	protected String formatRequests(Map<String, UserRequestVO> requestsToDisplay) {
+		StringBuffer stringBuffer = new StringBuffer();
+		UserRequestVO userRequestVO;
+		Iterator<Map.Entry<String, UserRequestVO>> requestIterator = requestsToDisplay.entrySet().iterator();
+
+		while (requestIterator.hasNext()) {
+
+			Entry<String, UserRequestVO> pairs = (Map.Entry<String, UserRequestVO>) requestIterator.next();
+			userRequestVO = (UserRequestVO) pairs.getValue();
+			stringBuffer.append("\n\n");
+			stringBuffer.append("Request Number: ");
+			stringBuffer.append(userRequestVO.getAttribute("requestNumber"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Administrator: ");
+			stringBuffer.append(userRequestVO.getAttribute("administrator"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Request Title: ");
+			stringBuffer.append(userRequestVO.getAttribute("requestTitle"));
+			stringBuffer.append('\n');
+			stringBuffer.append("Requestor: ");
+			stringBuffer.append(userRequestVO.getAttribute("requestor"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Username: ");
+			stringBuffer.append(userRequestVO.getAttribute("username"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Password: ");
+			stringBuffer.append(userRequestVO.getAttribute("password"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Rolename: ");
+			stringBuffer.append(userRequestVO.getAttribute("rolename"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Status: ");
+			stringBuffer.append(userRequestVO.getAttribute("status"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Date Registerd: ");
+			stringBuffer.append(userRequestVO.getAttribute("date-registered"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Date Updated: ");
+			stringBuffer.append(userRequestVO.getAttribute("date-updated"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Date Completed: ");
+			stringBuffer.append(userRequestVO.getAttribute("date-completed"));
+			stringBuffer.append("\n");
+			stringBuffer.append("Additional Info: ");
+			stringBuffer.append(userRequestVO.getAttribute("additionalInfo"));
+			stringBuffer.append("\n");
+			stringBuffer.append("==============================\n");
+		}
+		return stringBuffer.toString();
+	}
+
+}

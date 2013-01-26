@@ -1,0 +1,99 @@
+package com.fdm.tradingplatform.adminModule.model;
+
+import java.util.Map;
+import java.util.Properties;
+
+import utility.Utility;
+
+import com.fdm.tradingplatform.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.DaoFactory;
+import com.fdm.tradingplatform.model.TradingPlatformProperties;
+import com.fdm.tradingplatform.storage.iDao;
+
+public class Validator {
+	
+	private Properties properties;
+	private int usernamePolicyMinSize;
+	private int usernamePolicyMaxSize;
+	private int passwordPolicyMinSize;
+	private int passwordPolicyMaxSize;
+	private int rolenamePolicyMinSize;
+	private int rolenamePolicyMaxSize;
+	private String usernamePolicyRegex;
+	private iDao roleDao; 
+	private DaoFactory daoFactory;
+
+	public Validator(){
+
+		properties = TradingPlatformProperties.getInstance();
+
+		usernamePolicyMinSize = Integer.parseInt(properties
+				.getProperty("UsernamePolicyMinSize"));
+		usernamePolicyMaxSize = Integer.parseInt(properties
+				.getProperty("UsernamePolicyMaxSize"));
+		passwordPolicyMinSize = Integer.parseInt(properties
+				.getProperty("PasswordPolicyMinSize"));
+		passwordPolicyMaxSize = Integer.parseInt(properties
+				.getProperty("PasswordPolicyMaxSize"));
+		rolenamePolicyMinSize = Integer.parseInt(properties
+				.getProperty("RolenamePolicyMinSize"));
+		rolenamePolicyMaxSize = Integer.parseInt(properties
+				.getProperty("RolenamePolicyMaxSize"));
+		usernamePolicyRegex = properties.getProperty("UsernamePolicyRegex");
+		daoFactory = new DaoFactory();
+
+	}
+	
+	public boolean username(String username) {
+
+		if (!Utility.checkLength(username, usernamePolicyMinSize,
+				usernamePolicyMaxSize)
+				|| !username.matches(usernamePolicyRegex)) {
+		
+			return false;
+		} else
+			return true;
+	}
+
+	public boolean password(String password) {
+
+		if (!Utility.checkLength(password, passwordPolicyMinSize,
+				passwordPolicyMaxSize)
+				|| !Utility.hasUpperCase(password)
+				|| !Utility.hasNumber(password)) {
+			
+			return false;
+		} else
+			return true;
+	}
+
+	public boolean rolename(String rolename) {
+
+		if (!Utility.checkLength(rolename, rolenamePolicyMinSize,
+				rolenamePolicyMaxSize)){
+				
+			return false;
+				}
+		Map roles=getRoles();
+		
+		if(roles.get(rolename)==null){
+			return false;
+		}
+		
+		
+		return true;
+	}
+	
+	private Map getRoles(){
+			
+		roleDao = daoFactory.getInstance(DaoFactory.TypeOfInstance.ROLE);
+		try {
+			return roleDao.selectAll();
+		} catch (TradingPlatformException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+				
+	}
+}

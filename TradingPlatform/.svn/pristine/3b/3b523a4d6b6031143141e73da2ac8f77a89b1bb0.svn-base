@@ -1,0 +1,36 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+import com.fdm.tradingplatform.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.UserRequestVO;
+
+public class MarkAsCompleteUserRequestAction extends FormatRequests implements iDisplayAction {
+	private static Logger logger = Logger.getLogger("log");
+
+	@Override
+	public void execute(UserClientToken userClientToken,
+			UserInputVO userInputVO, AdminManager adminManager,
+			iView displayManager) throws TradingPlatformException {
+		logger.trace("Starting executing");
+
+		Map<String, UserRequestVO> userRequests = adminManager.getAcceptedUserRequests(userClientToken.getUsername());
+
+		if (!userRequests.isEmpty()) {
+			displayManager.displayMessage(formatRequests(userRequests));
+			String requestNumber=displayManager.checkInput(getRegexFromRequests(userRequests));
+			adminManager.ChangeUserRequestStatus(requestNumber,	userClientToken.getUsername(), "completed");
+			displayManager.displayMessage("Request number "	+ requestNumber + " has been marked as completed \n");
+
+		} else
+			displayManager.displayMessage(userClientToken.getUsername() + " does not have any assigned requests.");
+
+	}
+
+}

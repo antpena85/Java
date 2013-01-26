@@ -1,0 +1,14 @@
+package com.fdm.login.model;
+
+
+
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.UserVO;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public interface _LoginManager {
+
+	public UserClientToken authenticator(UserVO userInputAccount, UserVO userStoredAccount)throws TradingPlatformException;
+	
+	public UserVO getUserAccount(String username) throws TradingPlatformException;
+}

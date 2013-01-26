@@ -1,0 +1,104 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+
+import com.fdm.tradingplatform.model.Context;
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class AdminController {
+	private static Logger logger = Logger.getLogger("log");
+
+	private iView displayManager;
+	private AdminManager adminManager;
+	private boolean isRunning;
+	private Helper helper;
+	private UserClientToken userClientToken;
+	private Context context;
+	private Map<Integer, String> functionNames;
+	private UserInputVO userInputVO;
+	private iDisplayAction action;
+	private Map<Integer, iDisplayAction> actions;
+
+	public AdminController(UserClientToken userClientToken, iView viewManager, AdminManager adminManager) {
+		context = Context.getInstance();
+
+		this.userClientToken = userClientToken;
+		this.displayManager = viewManager;
+		this.adminManager = adminManager;
+		logger.trace("new AdminController");
+	}
+
+	@SuppressWarnings("unchecked")
+	public void setup() {
+		logger.trace("Start setup()");
+		this.helper = new Helper(this.displayManager);
+
+		this.functionNames = (Map <Integer, String>) context.getName("FUNCTION NAMES MAP");
+
+		actions = new HashMap<Integer, iDisplayAction>();
+		actions.put(Integer.valueOf(1), new AddUserAction());
+		actions.put(Integer.valueOf(2), new RemoveUserAction());
+		actions.put(Integer.valueOf(3), new BanUserAction());
+		actions.put(Integer.valueOf(4), new UnBanUserAction());
+		actions.put(Integer.valueOf(5), new UpdateUserDetailsAction());
+		actions.put(Integer.valueOf(6), new ViewUserRequestAction());
+		actions.put(Integer.valueOf(7), new AssignUserRequestAction());
+		actions.put(Integer.valueOf(8), new MarkAsCompleteUserRequestAction());
+		actions.put(Integer.valueOf(9), new LogoutUserAction());
+
+		if (helper.checkPermission(userClientToken, "adminScreen")) {
+			this.isRunning = true;
+			run();
+		} else
+			this.isRunning = false;
+
+		logger.trace("End startup()");
+	}
+
+	public void run() {
+		logger.trace("start run()");
+
+		while (this.isRunning) {
+
+			userInputVO = displayManager.displayMenuAndgetInput();
+
+			if (helper.checkPermission(userClientToken, functionNames.get(userInputVO.getInputType())))
+				actionUserInput(userInputVO);
+
+		}
+		logger.trace("End run()");
+	}
+
+	private void actionUserInput(UserInputVO userInputVO) {
+		logger.trace("Start actionUserInput() with option:" + userInputVO.getInputType());
+
+		if (userInputVO.getInputType() == 9) {
+			logger.debug("Set is running to false");
+
+			this.isRunning = false;
+		}
+
+		this.action = actions.get(Integer.valueOf(userInputVO.getInputType()));
+
+		try {
+			action.execute(userClientToken, userInputVO, adminManager, displayManager);
+		} catch (TradingPlatformException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+
+			displayManager.displayMessage(e.getMessage());
+		}
+
+		logger.trace("End actionUserInput(), isRunning=" + isRunning);
+	}
+
+}

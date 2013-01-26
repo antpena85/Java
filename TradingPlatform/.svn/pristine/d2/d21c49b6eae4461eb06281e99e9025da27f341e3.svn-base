@@ -1,0 +1,1931 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Trading platform log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Thu Jan 24 15:46:07 EST 2013<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:25</td>
+<td title="Message">load config.properties file</td>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>47</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>MainMenu.java:12</td>
+<td title="Message">new MainMenu</td>
+</tr>
+
+<tr>
+<td>47</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>AddUser.java:13</td>
+<td title="Message">new AddUser</td>
+</tr>
+
+<tr>
+<td>47</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>RemoveUser.java:12</td>
+<td title="Message">new removeUser</td>
+</tr>
+
+<tr>
+<td>63</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UnBanUser.java:14</td>
+<td title="Message">new UnBanUser()</td>
+</tr>
+
+<tr>
+<td>63</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>ViewUserRequests.java:16</td>
+<td title="Message">new ViewUserRequestsDetails()</td>
+</tr>
+
+<tr>
+<td>78</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UpdateUserDetails.java:15</td>
+<td title="Message">new UpdateUserDetails()</td>
+</tr>
+
+<tr>
+<td>78</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>94</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>125</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>125</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>141</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>156</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:67</td>
+<td title="Message">load user xml hashmap</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:19</td>
+<td title="Message">new UserXmlDao</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>203</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:3</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:2</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:1</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:10</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:7</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:6</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:5</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:4</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:9</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:8</td>
+</tr>
+
+<tr>
+<td>219</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:70</td>
+<td title="Message">Add to Storage:11</td>
+</tr>
+
+<tr>
+<td>234</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserRequestXmlDao.java:20</td>
+<td title="Message">new UserXmlDao</td>
+</tr>
+
+<tr>
+<td>250</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>LoginController.java:28</td>
+<td title="Message">Start setup()</td>
+</tr>
+
+<tr>
+<td>266</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>1890</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>1890</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserVO.java:21</td>
+<td title="Message">new UserVO</td>
+</tr>
+
+<tr>
+<td>3000</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:91</td>
+<td title="Message">setUsername(mookie)</td>
+</tr>
+
+<tr>
+<td>4968</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:105</td>
+<td title="Message">setPassword(Mookie123)</td>
+</tr>
+
+<tr>
+<td>4968</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AuthenticateAction.java:17</td>
+<td title="Message">Start executing login</td>
+</tr>
+
+<tr>
+<td>4968</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:32</td>
+<td title="Message">select user:mookie</td>
+</tr>
+
+<tr>
+<td>4968</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>4968</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:33</td>
+<td title="Message">Start getInstance()</td>
+</tr>
+
+<tr>
+<td>4968</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>4968</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:29</td>
+<td title="Message">new UserLoginMap</td>
+</tr>
+
+<tr>
+<td>4968</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>4968</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:52</td>
+<td title="Message">Start addUserToLoginMapmookie</td>
+</tr>
+
+<tr>
+<td>4984</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>4984</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>4984</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>RoleVO.java:28</td>
+<td title="Message">new roleVO(administrator)</td>
+</tr>
+
+<tr>
+<td>4984</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>RoleVO.java:28</td>
+<td title="Message">new roleVO(shareholder)</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>RoleVO.java:28</td>
+<td title="Message">new roleVO(broker)</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserXmlDao.java:32</td>
+<td title="Message">select user:mookie</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>RoleXmlDao.java:29</td>
+<td title="Message">return role:administrator</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:31</td>
+<td title="Message">getHashCode()=1757104241</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserServerToken.java:24</td>
+<td title="Message">new userServerToken</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:62</td>
+<td title="Message">User:mookie has logged in.</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserClientToken.java:22</td>
+<td title="Message">created usertoken client token for:mookie</td>
+</tr>
+
+<tr>
+<td>4999</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:31</td>
+<td title="Message">new AdminController</td>
+</tr>
+
+<tr>
+<td>5015</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:36</td>
+<td title="Message">Start setup()</td>
+</tr>
+
+<tr>
+<td>5031</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:33</td>
+<td title="Message">Start getInstance()</td>
+</tr>
+
+<tr>
+<td>5031</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>TradingPlatformProperties.java:47</td>
+<td title="Message">return firstInstance</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Helper.java:28</td>
+<td title="Message">Start checkPermission(mookie,adminScreen</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>Helper.java:40</td>
+<td title="Message">mookie has been granted access for function:adminScreen</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:31</td>
+<td title="Message">getHashCode()=1757104241</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:62</td>
+<td title="Message">start run()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>ConsoleView.java:37</td>
+<td title="Message">start displayMenuAndGetInput()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>MainMenu.java:16</td>
+<td title="Message">Start getUserInput()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Menu.java:12</td>
+<td title="Message">checkInput()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>MainMenu.java:22</td>
+<td title="Message">Start display Menu</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(**********************************
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(    SYSTEMS ADMINISTRATOR MENU
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(**********************************
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(1. Add new User
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(2. Remove existing User
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(3. Ban existing User
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(4. Unban existing User
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(5. Update User details
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(6. View outstanding user requests
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(7. View assigned user requests
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(8. View completed user requests
+)</td>
+</tr>
+
+<tr>
+<td>5077</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(9. Assign a User Requests
+)</td>
+</tr>
+
+<tr>
+<td>5093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(10. Mark a User Requests as completed
+)</td>
+</tr>
+
+<tr>
+<td>5093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(11. Logout
+)</td>
+</tr>
+
+<tr>
+<td>5093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(Enter Choice:)</td>
+</tr>
+
+<tr>
+<td>5093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>5093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:34</td>
+<td title="Message">Start readFromKeyboard()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>Menu.java:19</td>
+<td title="Message">selected choice=1321  regex=1|2|3|4|5|6|7|8|9|10|11</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(Invalid Choice - Please try again.
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>MainMenu.java:22</td>
+<td title="Message">Start display Menu</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(**********************************
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(    SYSTEMS ADMINISTRATOR MENU
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(**********************************
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(1. Add new User
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(2. Remove existing User
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(3. Ban existing User
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(4. Unban existing User
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(5. Update User details
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(6. View outstanding user requests
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(7. View assigned user requests
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(8. View completed user requests
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(9. Assign a User Requests
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(10. Mark a User Requests as completed
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(11. Logout
+)</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6733</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(Enter Choice:)</td>
+</tr>
+
+<tr>
+<td>6749</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>6749</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:34</td>
+<td title="Message">Start readFromKeyboard()</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>Menu.java:19</td>
+<td title="Message">selected choice=11  regex=1|2|3|4|5|6|7|8|9|10|11</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>Menu.java:22</td>
+<td title="Message">isIncorrect=false</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Menu.java:30</td>
+<td title="Message">end checkInput(), choice=11</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>ConsoleView.java:64</td>
+<td title="Message">Start SelectSubMenu(11)</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>ConsoleView.java:110</td>
+<td title="Message">vo assigned from choice 11</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:54</td>
+<td title="Message">setInputType=null</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:49</td>
+<td title="Message">getInputType=11</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>ConsoleView.java:115</td>
+<td title="Message">vo.SetInputType=11</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:49</td>
+<td title="Message">getInputType=11</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Helper.java:28</td>
+<td title="Message">Start checkPermission(mookie,logout</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:31</td>
+<td title="Message">getHashCode()=1757104241</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:49</td>
+<td title="Message">getInputType=11</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:76</td>
+<td title="Message">Start actionUserInput() with option:11</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:49</td>
+<td title="Message">getInputType=11</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>LogoutUserAction.java:21</td>
+<td title="Message">Start execute</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:33</td>
+<td title="Message">Start getInstance()</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:46</td>
+<td title="Message">removeUserFromLoginMap(mookie)</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>ConsoleView.java:121</td>
+<td title="Message">Start displayMessage(
+mookie has been logged out.
+)</td>
+</tr>
+
+<tr>
+<td>8108</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(
+mookie has been logged out.
+)</td>
+</tr>
+
+<tr>
+<td>8124</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>8124</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:16</td>
+<td title="Message">Start displayMessage(
+Press 'Enter' to continue.
+)</td>
+</tr>
+
+<tr>
+<td>8124</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:20</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>8124</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:34</td>
+<td title="Message">Start readFromKeyboard()</td>
+</tr>
+
+<tr>
+<td>9452</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:30</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>9452</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:26</td>
+<td title="Message">getUserName()=mookie</td>
+</tr>
+
+<tr>
+<td>9452</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>LogoutUserAction.java:27</td>
+<td title="Message">mookie has logged out</td>
+</tr>
+
+<tr>
+<td>9452</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>LogoutUserAction.java:28</td>
+<td title="Message">End execute</td>
+</tr>
+
+<tr>
+<td>9452</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:90</td>
+<td title="Message">End actionUserInput(), isRunning=false</td>
+</tr>
+
+<tr>
+<td>9452</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:72</td>
+<td title="Message">End run()</td>
+</tr>
+
+<tr>
+<td>9452</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:58</td>
+<td title="Message">End startup()</td>
+</tr>

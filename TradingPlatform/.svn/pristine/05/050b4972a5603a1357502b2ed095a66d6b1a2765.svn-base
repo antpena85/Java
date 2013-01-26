@@ -1,0 +1,132 @@
+package com.fdm.tradingplatform.storage;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.fdm.tradingplatform.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.DatabaseConnectionPool;
+import com.fdm.tradingplatform.model.TPMessage;
+import com.fdm.tradingplatform.model.UserRequestVO;
+
+public class UserRequestDatabaseDao extends DatabaseDao implements iDao {
+
+	private static String SELECT_A_SINGLE_REQUEST = "SELECT requestNumber,administrator,requestTitle,requestor,username,password,rolename,status,dateRegistered,dateCompleted,dateUpdated,additionalInfo FROM REQUESTS WHERE requestNumber=?";
+	private static String SELECT_ALL_REQUESTS = "Select requestNumber,administrator,requestTitle,requestor,username,password,rolename,status,dateRegistered,dateCompleted,dateUpdated,additionalInfo FROM REQUESTS";
+	private static String UPDATE_USER_REQUEST = "UPDATE REQUESTS set administrator=?,requestTitle=?,requestor=?,username=?,password=?,rolename=?,status=?,dateRegistered=?,dateCompleted=?,dateUpdated=?,additionalInfo=? WHERE requestNumber=?";
+
+	public UserRequestDatabaseDao(DatabaseConnectionPool connectionPool) {
+		super(connectionPool);
+	}
+
+	@Override
+	public Databean select(String primaryKey) throws TradingPlatformException {
+
+		UserRequestVO userRequestVO = new UserRequestVO();
+		try {
+			connection = getDatabaseConnection();
+			statement = connection.prepareStatement(SELECT_A_SINGLE_REQUEST);
+			statement.setString(1, primaryKey);
+			ResultSet rs = statement.executeQuery();
+
+			rs.next();
+
+			userRequestVO.setAttribute("requestNumber", rs.getString(1));
+			userRequestVO.setAttribute("administrator", rs.getString(2));
+			userRequestVO.setAttribute("requestTitle", rs.getString(3));
+			userRequestVO.setAttribute("requestor", rs.getString(4));
+			userRequestVO.setAttribute("username", rs.getString(5));
+			userRequestVO.setAttribute("password", rs.getString(6));
+			userRequestVO.setAttribute("rolename", rs.getString(7));
+			userRequestVO.setAttribute("status", rs.getString(8));
+			userRequestVO.setAttribute("date-registered", rs.getString(9));
+			userRequestVO.setAttribute("date-completed", rs.getString(10));
+			userRequestVO.setAttribute("date-updated", rs.getString(11));
+			userRequestVO.setAttribute("additionalInfo", rs.getString(12));
+
+			return (Databean) userRequestVO;
+		} catch (SQLException e) {
+			throw new TradingPlatformException(TPMessage.SQL_ERROR_MESSAGE);
+		} finally {
+			closeDatabaseConnection();
+		}
+	}
+
+	@Override
+	public void insert(Databean bean) throws TradingPlatformException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void update(Databean bean) throws TradingPlatformException {
+
+		UserRequestVO userRequestVO = (UserRequestVO) bean;
+		connection = getDatabaseConnection();
+
+		try {
+			statement = connection.prepareStatement(UPDATE_USER_REQUEST);
+
+			statement.setString(1, userRequestVO.getAttribute("administrator"));
+			statement.setString(2, userRequestVO.getAttribute("requestTitle"));
+			statement.setString(3, userRequestVO.getAttribute("requestor"));
+			statement.setString(4, userRequestVO.getAttribute("username"));
+			statement.setString(5, userRequestVO.getAttribute("password"));
+			statement.setString(6, userRequestVO.getAttribute("rolename"));
+			statement.setString(7, userRequestVO.getAttribute("status"));
+			statement.setString(8, userRequestVO.getAttribute("dateRegistered"));
+			statement.setString(9, userRequestVO.getAttribute("dateCompleted"));
+			statement.setString(10, userRequestVO.getAttribute("dateUpdated"));
+			statement.setString(11, userRequestVO.getAttribute("additionalInfo"));
+			statement.setString(12, userRequestVO.getAttribute("requestNumber"));
+
+			statement.executeQuery();
+		} catch (SQLException e) {
+			throw new TradingPlatformException(TPMessage.SQL_ERROR_MESSAGE);
+		} finally {
+			closeDatabaseConnection();
+		}
+	}
+
+	@Override
+	public void delete(String primaryKey) throws TradingPlatformException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Map<String,Databean> selectAll() throws TradingPlatformException {
+
+		Map<String,Databean> userRequests = new HashMap<String,Databean>();
+		try {
+			connection = getDatabaseConnection();
+			statement = connection.prepareStatement(SELECT_ALL_REQUESTS);
+			ResultSet rs = statement.executeQuery();
+
+			while (rs.next()) {
+				UserRequestVO userRequestVO = new UserRequestVO();
+				userRequestVO.setAttribute("requestNumber", rs.getString(1));
+				userRequestVO.setAttribute("administrator", rs.getString(2));
+				userRequestVO.setAttribute("requestTitle", rs.getString(3));
+				userRequestVO.setAttribute("requestor", rs.getString(4));
+				userRequestVO.setAttribute("username", rs.getString(5));
+				userRequestVO.setAttribute("password", rs.getString(6));
+				userRequestVO.setAttribute("rolename", rs.getString(7));
+				userRequestVO.setAttribute("status", rs.getString(8));
+				userRequestVO.setAttribute("date-registered", rs.getString(9));
+				userRequestVO.setAttribute("date-completed", rs.getString(10));
+				userRequestVO.setAttribute("date-updated", rs.getString(11));
+				userRequestVO.setAttribute("additionalInfo", rs.getString(12));
+
+				userRequests.put((String) userRequestVO.getAttribute("requestNumber"), userRequestVO);
+			}
+		} catch (SQLException e) {
+			throw new TradingPlatformException(TPMessage.SQL_ERROR_MESSAGE);
+		} finally {
+			closeDatabaseConnection();
+		}
+		return userRequests;
+	}
+
+}

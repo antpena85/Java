@@ -1,0 +1,25 @@
+package com.fdm.login.controller;
+
+
+import org.apache.log4j.Logger;
+import com.fdm.login.model._LoginManager;
+import com.fdm.login.view._DisplayManager;
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.UserVO;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class AuthenticateAction implements _DisplayAction {
+
+	private static Logger logger = Logger.getLogger("log");
+
+	@Override
+	public UserClientToken execute(UserVO userInput,_LoginManager loginManager, _DisplayManager displayManager)throws TradingPlatformException {
+		logger.trace("Start executing login");
+		
+		UserVO userStoredAccount = loginManager.getUserAccount(userInput.getUsername());
+		
+		return loginManager.authenticator(userInput,userStoredAccount);
+		
+	}
+
+}

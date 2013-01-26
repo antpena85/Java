@@ -1,0 +1,59 @@
+package com.fdm.tradingplatform.adminModule.view.ConsoleView;
+
+import org.apache.log4j.Logger;
+
+public class ViewUserRequests extends Menu {
+
+	private static Logger logger = Logger.getLogger("log");
+	private final String choicesRegex = "[1|2|3]";
+	private final int VIEW_ALL_REQUESTS = 1;
+	private final int VIEW_ACCEPTED_REQUESTS = 2;
+	private final int VIEW_COMPLETED_REQUESTS = 3;
+
+	public ViewUserRequests(DisplayUtility displayUtility) {
+
+		this.displayUtility = displayUtility;
+		logger.debug("new ViewUserRequestsDetails()");
+	}
+
+	public String displayMenu() {
+		logger.trace("Start displayMenu()");
+
+		this.displayUtility.displayMessage("***************************************************************\n");
+		this.displayUtility.displayMessage("View User requests. Please select an option from the menu.\n");
+		this.displayUtility.displayMessage("***************************************************************\n");
+		this.displayUtility.displayMessage("1. View outstanding user requests\n");
+		this.displayUtility.displayMessage("2. View assigned user requests\n");
+		this.displayUtility.displayMessage("3. View completed user requests\n");
+		this.displayUtility.displayMessage("");
+		this.displayUtility.displayMessage("Select number: ");
+		return this.displayUtility.readFromKeyboard();
+	}
+
+	public UserInputVO getUserInput(UserInputVO userInputVO) {
+		logger.trace("Start UserInputVO");
+
+		userInputVO = new UserInputVO();
+
+		int choice = checkInput(choicesRegex);
+		logger.debug("choice" + choice);
+
+		switch (choice) {
+
+		case VIEW_ALL_REQUESTS:
+			userInputVO.setSecondLevelInputtype(VIEW_ALL_REQUESTS);
+			break;
+		case VIEW_ACCEPTED_REQUESTS:
+			userInputVO.setSecondLevelInputtype(VIEW_ACCEPTED_REQUESTS);
+			break;
+		case VIEW_COMPLETED_REQUESTS:
+			userInputVO.setSecondLevelInputtype(VIEW_COMPLETED_REQUESTS);
+			break;
+		}
+
+		logger.trace("End displayMenu()");
+
+		return userInputVO;
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.fdm.tradingplatform.model.storage;
+
+public interface Databean {
+
+	public String getAttribute(String attribute);
+
+}

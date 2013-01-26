@@ -1,0 +1,7 @@
+package com.fdm.tradingplatform.model;
+
+public interface iConnectionPool {
+
+	public Object getConnection(String key);
+
+}

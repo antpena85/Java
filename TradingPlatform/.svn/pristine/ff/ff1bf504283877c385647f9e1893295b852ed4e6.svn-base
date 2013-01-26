@@ -1,0 +1,65 @@
+package com.fdm.tradingplatform.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.exception.TradingPlatformException;
+import com.fdm.tradingplatform.storage.iDao;
+
+public class UserLoginMap {
+
+	private static Logger logger = Logger.getLogger("log");
+
+	private Map<String, UserServerToken> loggedinUsers;
+	private static UserLoginMap firstInstance;
+	private DaoFactory daoFactory;
+	private iDao userDao;
+	private iDao roleDao;
+	private UserVO user;
+	private RoleVO userRole;
+
+	private UserLoginMap() {
+
+		loggedinUsers = new HashMap<String, UserServerToken>();
+
+		daoFactory = new DaoFactory();
+
+		logger.debug("new UserLoginMap");
+	}
+
+	public static UserLoginMap getInstance() {
+		logger.trace("Start getInstance()");
+
+		if (firstInstance == null)
+			firstInstance = new UserLoginMap();
+
+		return firstInstance;
+	}
+
+	public UserServerToken getUserServerToken(String username) {
+		return loggedinUsers.get(username);
+	}
+
+	public void removeUserFromLoginMap(UserClientToken userClientToken) {
+		logger.trace("removeUserFromLoginMap(" + userClientToken.getUsername() + ")");
+
+		loggedinUsers.remove(userClientToken.getUsername());
+	}
+
+	public void addUserToLoginMap(UserClientToken userClientToken, Context context) throws TradingPlatformException {
+		logger.trace("Start addUserToLoginMap" + userClientToken.getUsername());
+
+		userDao = daoFactory.getInstance(DaoFactory.TypeOfInstance.USER);
+		roleDao = daoFactory.getInstance(DaoFactory.TypeOfInstance.ROLE);
+
+		user = (UserVO) userDao.select(userClientToken.getUsername());
+		userRole = (RoleVO) roleDao.select(user.getRolename());
+
+		loggedinUsers.put(userClientToken.getUsername(), new UserServerToken(userClientToken, userRole.getRoles()));
+
+		logger.info("User:" + userClientToken.getUsername() + " has logged in.");
+	}
+
+}

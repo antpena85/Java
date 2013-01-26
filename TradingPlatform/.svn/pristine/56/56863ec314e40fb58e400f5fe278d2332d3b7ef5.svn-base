@@ -1,0 +1,115 @@
+package com.fdm.tradingplatform.storage;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.fdm.tradingplatform.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.DatabaseConnectionPool;
+import com.fdm.tradingplatform.model.RoleVO;
+import com.fdm.tradingplatform.model.TPMessage;
+
+
+public class RoleDatabaseDao extends DatabaseDao implements iDao{
+
+	private final String SELECT_ALL_ROLES="SELECT NAME,ADDUSER,REMOVEUSER,CHANGEPERMISSION,USERREGISTRATION,BANUSER,UPDATEUSERDETAILS,ADMINSCREEN,UNBANUSER,VIEWUSERREQUEST,ASSIGNUSERREQUEST,MARKASCOMPLETEUSERREQUEST FROM ROLES"; 
+	private final String SELECT_A_SINGLE_ROLE="Select name,addUser,removeUser,changePermission,userRegistration,banUser,updateUserDetails,adminScreen,unbanUser,viewUserRequest,assignUserRequest,markAsCompleteUserRequest FROM ROLES where name=?";
+	
+	public RoleDatabaseDao(DatabaseConnectionPool connectionPool)  {
+		super(connectionPool);
+		
+	}
+
+	@Override
+	public Databean select(String primaryKey) throws TradingPlatformException {
+		Map<String,String> roleMap = new HashMap<String,String>();
+		String roleName;
+		try {
+			connection = getDatabaseConnection();
+			statement = connection.prepareStatement(SELECT_A_SINGLE_ROLE);
+			statement.setString(1, primaryKey);
+			
+			ResultSet rs = statement.executeQuery();
+			rs.next();
+			
+			roleName=rs.getString(1);
+			
+			roleMap.put("addUser",rs.getString(2));
+			roleMap.put("removeUser",rs.getString(3));
+			roleMap.put("changePermision",rs.getString(4));
+			roleMap.put("userRegistration",rs.getString(5));
+			roleMap.put("banUser",rs.getString(6));
+			roleMap.put("updateUserDetails",rs.getString(7));
+			roleMap.put("adminScreen",rs.getString(8));
+			roleMap.put("unBanUser",rs.getString(9));
+			roleMap.put("viewUserRequest",rs.getString(10));
+			roleMap.put("assignUserRequest",rs.getString(11));
+			roleMap.put("markAsCompleteUserRequest",rs.getString(12));
+			
+			RoleVO roleVO = new RoleVO(roleName,roleMap);
+		
+			return (Databean) roleVO;
+			
+		} catch (SQLException e) {
+			throw new TradingPlatformException(TPMessage.SQL_ERROR_MESSAGE);
+
+		}
+		finally{
+			closeDatabaseConnection();
+		}
+	}
+
+	@Override
+	public void insert(Databean bean) throws TradingPlatformException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Databean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(String primaryKey) throws TradingPlatformException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Map<String,HashMap<String,String>> selectAll() throws TradingPlatformException {
+		
+		Map<String,HashMap<String,String>> allRoles = new HashMap<String,HashMap<String,String>>();
+		Map<String,String> specificRole = new HashMap<String,String>();
+		try {
+			connection = getDatabaseConnection();
+			statement = connection.prepareStatement(SELECT_ALL_ROLES);
+			ResultSet rs = statement.executeQuery();
+			
+			while(rs.next()){
+				specificRole.clear();
+				specificRole.put("addUser", rs.getString(2));
+				specificRole.put("removeUser", rs.getString(3));
+				specificRole.put("changePermission", rs.getString(4));
+				specificRole.put("UserRegistration", rs.getString(5));
+				specificRole.put("banUser", rs.getString(6));
+				specificRole.put("updateUserDetails", rs.getString(7));
+				specificRole.put("adminScreen", rs.getString(8));
+				specificRole.put("unBanUser", rs.getString(9));
+				specificRole.put("viewUserRequest", rs.getString(10));
+				specificRole.put("assignUserRequest", rs.getString(11));
+				specificRole.put("markAsCompleteUserRequest", rs.getString(12));
+				allRoles.put(rs.getString(1), new HashMap<String,String>(specificRole));
+				
+			}
+		} catch (SQLException e) {
+			throw new TradingPlatformException(TPMessage.SQL_ERROR_MESSAGE);
+		}
+		finally{
+			closeDatabaseConnection();
+		}
+		return allRoles;
+	}
+}

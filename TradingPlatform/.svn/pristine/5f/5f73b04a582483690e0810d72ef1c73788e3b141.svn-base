@@ -1,0 +1,21 @@
+package com.fdm.tradingplatform.exception;
+
+public class PasswordPolicyException extends PolicyException{
+
+	
+			
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PasswordPolicyException(String message) {
+		
+		super(message);
+		
+	}
+	
+	
+
+}

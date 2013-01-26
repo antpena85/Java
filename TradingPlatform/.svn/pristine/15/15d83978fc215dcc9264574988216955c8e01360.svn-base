@@ -1,0 +1,28 @@
+package com.fdm.tradingplatform.adminModule.view.ConsoleView;
+
+import org.apache.log4j.Logger;
+
+public class BanUser {
+	private static Logger logger = Logger.getLogger("log");
+
+	private DisplayUtility displayUtility;
+
+	public BanUser(DisplayUtility displayUtility) {
+
+		this.displayUtility = displayUtility;
+	}
+
+	public UserInputVO getUserInput(UserInputVO userInputVO) {
+		logger.trace("Start userInputVO()");
+
+		displayUtility.displayMessage("****** Ban User ******\n");
+		displayUtility.displayMessage("Please enter the user's username:");
+		userInputVO.setUsername(displayUtility.readFromKeyboard());
+
+		logger.debug("vo.setUserName=" + userInputVO.getUsername());
+
+		logger.trace("end userInputVO()");
+		return userInputVO;
+	}
+
+}

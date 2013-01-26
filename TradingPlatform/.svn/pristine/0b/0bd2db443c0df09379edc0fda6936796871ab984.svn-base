@@ -1,0 +1,41 @@
+
+
+import com.fdm.login.controller.LoginController;
+import com.fdm.tradingplatform.adminModule.control.AdminController;
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.model.Validator;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.ConsoleView;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+import com.fdm.tradingplatform.model.Context;
+import com.fdm.tradingplatform.model.UserClientToken;
+
+
+
+public class ApplicationStart {
+
+
+	
+	public static void main(String[] args){
+		
+		Context context = Context.getInstance();
+		iView consoleView = new ConsoleView();
+		Validator validator = new Validator();
+		AdminManager adminManager = new AdminManager(context,validator);
+		UserClientToken userToken=null;
+
+		try{
+			LoginController loginController = new LoginController(context);
+			userToken=loginController.setup();
+		
+			AdminController adminController = new AdminController(userToken,consoleView,adminManager);
+			adminController.setup();
+		}finally{
+			context.cleanUp();
+		}
+		
+		
+
+		
+	}
+
+}

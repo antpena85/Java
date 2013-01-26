@@ -1,0 +1,186 @@
+package com.fdm.tradingplatform.adminModule.model;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.exception.PasswordPolicyException;
+import com.fdm.tradingplatform.exception.RolenamePolicyException;
+import com.fdm.tradingplatform.exception.TradingPlatformException;
+import com.fdm.tradingplatform.exception.UserExistsException;
+import com.fdm.tradingplatform.exception.UserNotFoundException;
+import com.fdm.tradingplatform.exception.UsernamePolicyException;
+import com.fdm.tradingplatform.model.Context;
+import com.fdm.tradingplatform.model.DaoFactory;
+import com.fdm.tradingplatform.model.TPMessage;
+import com.fdm.tradingplatform.model.UserRequestVO;
+import com.fdm.tradingplatform.model.UserVO;
+import com.fdm.tradingplatform.storage.iDao;
+
+public class AdminManager {
+	private static Logger logger = Logger.getLogger("log");
+
+	private iDao userDao;
+	private iDao userRequestDao;
+	private UserRequestVO userRequestVO;
+	private UserVO userVO;
+	private DaoFactory daoFactory;
+	private Validator validate;
+	private final String ACTIVE_STATUS = "active";
+
+	public AdminManager(Context context, Validator validate) {
+
+		this.daoFactory = new DaoFactory();
+		this.validate = validate;
+		this.userDao = daoFactory.getInstance(DaoFactory.TypeOfInstance.USER);
+		this.userRequestDao = daoFactory.getInstance(DaoFactory.TypeOfInstance.REQUEST);
+	}
+
+	public void addUser(String username, String password, String rolename) throws TradingPlatformException {
+		logger.trace("Start addUser (" + username + "," + password + "," + rolename);
+
+		if (userDao.select(username) != null)
+			throw new UserExistsException(TPMessage.USER_EXISTS);
+		if (!validate.username(username))
+			throw new UsernamePolicyException(TPMessage.USERNAME_ERROR_MESSAGE);
+		if (!validate.password(password))
+			throw new PasswordPolicyException(TPMessage.PASSWORD_ERROR_MESSAGE);
+		if (!validate.rolename(rolename))
+			throw new RolenamePolicyException(TPMessage.AVAILIABLE_ROLES);
+
+		userDao.insert(new UserVO(username, password, rolename, ACTIVE_STATUS));
+
+		logger.info(username + " has been added to storage.");
+	}
+
+	public void removeUser(String username) throws TradingPlatformException {
+		logger.trace("Start removeUser(" + username + ")");
+
+		checkIfUserExists(username);
+		userDao.delete(username);
+
+		logger.info(username + " has been removed from storage.");
+	}
+
+	public void banUser(String username) throws TradingPlatformException {
+		logger.trace("Start banUser(" + username + ")");
+
+		checkIfUserExists(username);
+		userVO = (UserVO) userDao.select(username);
+		userVO.setStatus("inActive");
+		userDao.update(userVO);
+		logger.info(username + " has been added as banned to storage.");
+
+	}
+
+	public void unBanUser(String username) throws TradingPlatformException {
+		logger.trace("unBanUser(" + username + ")");
+
+		checkIfUserExists(username);
+		userVO = (UserVO) userDao.select(username);
+		logger.debug(username + " status was=" + userVO.getStatus());
+		userVO.setStatus("active");
+		userDao.update(userVO);
+
+		logger.info(username + " has been added as unbanned to storage.");
+	}
+
+	public void updateUserPassword(String username, String password) throws TradingPlatformException {
+		logger.trace("updateUserPassword(" + username + "," + password + ")");
+
+		checkIfUserExists(username);
+		if (!validate.password(password))
+			throw new PasswordPolicyException(TPMessage.PASSWORD_ERROR_MESSAGE);
+
+		userVO = (UserVO) userDao.select(username);
+		userVO.setPassword(password);
+		userDao.update(userVO);
+		logger.info(username + " has updated it's password to storage.");
+	}
+
+	public void updateUserRoleName(String username, String rolename) throws TradingPlatformException {
+		logger.trace("Start updateUserRoleName(" + username + "," + "rolename");
+
+		checkIfUserExists(username);
+		if (!validate.rolename(rolename))
+			throw new RolenamePolicyException(TPMessage.AVAILIABLE_ROLES);
+
+		userVO = (UserVO) userDao.select(username);
+		logger.debug(username + " rolename was:" + userVO.getRolename() + " and is changed to " + rolename);
+		userVO.setRolename(rolename);
+		userDao.update(userVO);
+		logger.info(username + " has updated it's rolename to storage.");
+	}
+
+	public Map<String, UserRequestVO> getUserRequests(String requestStatus) throws TradingPlatformException {
+		logger.trace("Start getUserRequests");
+
+		Map<String, UserRequestVO> allUserRequests = (Map<String, UserRequestVO>) userRequestDao.selectAll();
+		Map<String, UserRequestVO> returnedRequests = new HashMap<String, UserRequestVO>();
+		Iterator<Entry<String, UserRequestVO>> it = allUserRequests.entrySet().iterator();
+
+		while (it.hasNext()) {
+			Map.Entry<String, UserRequestVO> pairs = (Map.Entry<String, UserRequestVO>) it.next();
+			userRequestVO = (UserRequestVO) pairs.getValue();
+
+			if (userRequestVO.getAttribute("status").equals(requestStatus))
+				returnedRequests.put(userRequestVO.getAttribute("requestNumber"), userRequestVO);
+
+		}
+
+		return returnedRequests;
+
+	}
+
+	public Map<String, UserRequestVO> getAcceptedUserRequests(String administratorUsername) throws TradingPlatformException {
+
+		logger.trace("Start getAcceptedRequesats()");
+
+		Map<String, UserRequestVO> acceptedUserRequests = getUserRequests("accepted");
+
+		Map<String, UserRequestVO> returnedRequests = new HashMap<String, UserRequestVO>();
+		Iterator<Map.Entry<String, UserRequestVO>> it = acceptedUserRequests.entrySet().iterator();
+
+		while (it.hasNext()) {
+			Map.Entry<String, UserRequestVO> pairs = (Map.Entry<String, UserRequestVO>) it.next();
+			userRequestVO = (UserRequestVO) pairs.getValue();
+
+			if (userRequestVO.getAttribute("administrator").equals(administratorUsername)) {
+				returnedRequests.put(userRequestVO.getAttribute("requestNumber"), userRequestVO);
+				logger.debug("returned requests:add to hashmap:" + userRequestVO.getAttribute("requestNumber"));
+			}
+		}
+
+		return returnedRequests;
+
+	}
+
+	public void ChangeUserRequestStatus(String requestNumber, String username, String status) throws TradingPlatformException {
+
+		UserRequestVO userRequestVO = (UserRequestVO) userRequestDao.select(requestNumber);
+		logger.debug("username=" + username);
+
+		String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+
+		userRequestVO.setAttribute("administrator", username);
+		userRequestVO.setAttribute("status", status);
+		userRequestVO.setAttribute("date-updated", timeStamp);
+
+		userRequestDao.update(userRequestVO);
+
+	}
+
+	private void checkIfUserExists(String username) throws TradingPlatformException {
+
+		if (!validate.username(username))
+			throw new UsernamePolicyException(TPMessage.USERNAME_ERROR_MESSAGE);
+		if (userDao.select(username) == null)
+			throw new UserNotFoundException(username + " " + TPMessage.USER_NOT_FOUND);
+	}
+
+}

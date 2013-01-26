@@ -1,0 +1,41 @@
+/*
+ * @author Rami Stefanidis
+ * 
+ **********************************************************************
+ * This code and its derivatives belong to FDM Group PLC and may not be
+ * copied,reproduced, amended or used in any way without permission
+ * from FDM group PLC
+ **********************************************************************
+ * Current Version
+ * ===============
+ * Revision:  1.0
+ * Date/time: 26/01/2013
+ **********************************************************************
+ */
+
+
+package com.fdm.login.controller;
+
+
+import org.apache.log4j.Logger;
+import com.fdm.login.model._LoginManager;
+import com.fdm.login.view.iViewLogin;
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.UserVO;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class AuthenticateAction implements LoginAction {
+
+	private static Logger logger = Logger.getLogger("log");
+
+	@Override
+	public UserClientToken execute(UserVO userInput,_LoginManager loginManager, iViewLogin displayManager)throws TradingPlatformException {
+		logger.trace("Start executing login");
+		
+		UserVO userStoredAccount = loginManager.getUserAccount(userInput.getUsername());
+		
+		return loginManager.authenticator(userInput,userStoredAccount);
+		
+	}
+
+}

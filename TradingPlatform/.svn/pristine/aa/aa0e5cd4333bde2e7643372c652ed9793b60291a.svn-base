@@ -1,0 +1,125 @@
+package com.fdm.tradingplatform.model.storage;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Map;
+
+import com.fdm.tradingplatform.model.DatabaseConnectionPool;
+import com.fdm.tradingplatform.model.TPMessage;
+import com.fdm.tradingplatform.model.UserVO;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class UserDatabaseDao extends DatabaseDao implements iDao {
+
+	private final String SELECT_A_SINGLE_USER = "SELECT username,password,rolename,status " + "FROM USERS " + "WHERE username=? ";
+
+	private final String INSERT_A_USER = "INSERT INTO USERS (username,password,rolename,status) " + "VALUES (?,?,?,?)";
+
+	private final String UPDATE_A_USER = "UPDATE USERS set username=?,password=?,rolename=?,status=? " + "WHERE username=?";
+
+	private final String DELETE_A_USER = "DELETE FROM USERS WHERE username=?";
+
+	public UserDatabaseDao(DatabaseConnectionPool connectionPool) {
+		super(connectionPool);
+
+	}
+
+	@Override
+	public Databean select(String primaryKey) throws TradingPlatformException {
+
+		UserVO userVO = new UserVO();
+
+		try {
+			connection = getDatabaseConnection();
+			statement = connection.prepareStatement(SELECT_A_SINGLE_USER);
+			statement.setString(1, primaryKey);
+
+			ResultSet rs = statement.executeQuery();
+			
+			if(rs.next()){
+				userVO.setUsername(rs.getString(1));
+				userVO.setPassword(rs.getString(2));
+				userVO.setRolename(rs.getString(3));
+				userVO.setStatus(rs.getString(4));
+			}
+			else
+				userVO=null;
+
+		} catch (SQLException e) {
+			System.out.println("hi");
+			throw new TradingPlatformException(TPMessage.SQL_ERROR_MESSAGE+" ");
+
+		} finally {
+			closeDatabaseConnection();
+		}
+		return (Databean) userVO;
+	}
+
+	@Override
+	public void insert(Databean bean) throws TradingPlatformException {
+
+		UserVO userVO = (UserVO) bean;
+		try {
+			connection = connectionPool.openConnection();
+			statement = connection.prepareStatement(INSERT_A_USER);
+
+			statement.setString(1, userVO.getUsername());
+			statement.setString(2, userVO.getPassword());
+			statement.setString(3, userVO.getRolename());
+			statement.setString(4, userVO.getStatus());
+
+			statement.executeQuery();
+
+		} catch (SQLException e) {
+			throw new TradingPlatformException(TPMessage.SQL_ERROR_MESSAGE);
+		} finally {
+
+			connectionPool.returnConnection(connection);
+		}
+
+	}
+
+	@Override
+	public void update(Databean bean) throws TradingPlatformException {
+
+		UserVO userVO = (UserVO) bean;
+		try {
+			connection = connectionPool.openConnection();
+			statement = connection.prepareStatement(UPDATE_A_USER);
+
+			statement.setString(1, userVO.getUsername());
+			statement.setString(2, userVO.getPassword());
+			statement.setString(3, userVO.getRolename());
+			statement.setString(4, userVO.getStatus());
+			statement.setString(5, userVO.getUsername());
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new TradingPlatformException(TPMessage.SQL_ERROR_MESSAGE);
+		} finally {
+			connectionPool.returnConnection(connection);
+		}
+
+	}
+
+	@Override
+	public void delete(String primaryKey) throws TradingPlatformException {
+
+		try {
+			connection = connectionPool.openConnection();
+			statement = connection.prepareStatement(DELETE_A_USER);
+			statement.setString(1, primaryKey);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new TradingPlatformException(TPMessage.SQL_ERROR_MESSAGE);
+		} finally {
+			connectionPool.returnConnection(connection);
+		}
+	}
+
+	@Override
+	public Map<String, Databean> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

@@ -1,0 +1,198 @@
+/*
+ * @author Rami Stefanidis
+ * 
+ **********************************************************************
+ * This code and its derivatives belong to FDM Group PLC and may not be
+ * copied,reproduced, amended or used in any way without permission
+ * from FDM group PLC
+ **********************************************************************
+ * Current Version
+ * ===============
+ * Revision:  1.0
+ * Date/time: 26/01/2013
+ **********************************************************************
+ */
+
+package com.fdm.tradingplatform.adminModule.model;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.model.TPMessage;
+import com.fdm.tradingplatform.model.TradingPlatformProperties;
+import com.fdm.tradingplatform.model.UserRequestVO;
+import com.fdm.tradingplatform.model.UserVO;
+import com.fdm.tradingplatform.model.exception.PasswordPolicyException;
+import com.fdm.tradingplatform.model.exception.RolenamePolicyException;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+import com.fdm.tradingplatform.model.exception.UserExistsException;
+import com.fdm.tradingplatform.model.exception.UserNotFoundException;
+import com.fdm.tradingplatform.model.exception.UsernamePolicyException;
+import com.fdm.tradingplatform.model.storage.Databean;
+import com.fdm.tradingplatform.model.storage.iDao;
+
+public class AdminManager {
+	private static Logger logger = Logger.getLogger("log");
+	private Properties properties = TradingPlatformProperties.getInstance();
+	private iDao userDao;
+	private iDao userRequestDao;
+	private UserRequestVO userRequestVO;
+	private UserVO userVO;
+	private Validator validate;
+	private final String ACTIVE_STATUS = "active";
+
+	public AdminManager(Validator validate,iDao userDao,iDao userRequestDao) {
+		this.validate = validate;
+		this.userDao = userDao;
+		this.userRequestDao = userRequestDao;
+	}
+
+	public void addUser(UserInputVO userInputVO) throws TradingPlatformException {
+		logger.trace("Start addUser (" + userInputVO.getUsername() + "," + userInputVO.getPassword() + "," + userInputVO.getRoleName()+")");
+
+		if (userDao.select(userInputVO.getUsername()) != null){
+			logger.error(properties.getProperty("USER_EXISTS"));
+			throw new UserExistsException(properties.getProperty("USER_EXISTS"));
+		}
+		if (!validate.username(userInputVO.getUsername())){
+			logger.error(properties.getProperty("USERNAME_ERROR_MESSAGE"));
+			throw new UsernamePolicyException(properties.getProperty("USERNAME_ERROR_MESSAGE"));
+		}
+		if (!validate.password(userInputVO.getPassword())){
+			logger.error(properties.getProperty("PASSWORD_ERROR_MESSAGE"));
+			throw new PasswordPolicyException(properties.getProperty("PASSWORD_ERROR_MESSAGE"));
+		}
+		if (!validate.rolename(userInputVO.getRoleName())){
+			logger.error("Rolename error");
+			throw new RolenamePolicyException(TPMessage.AVAILIABLE_ROLES);
+		}
+		userDao.insert(new UserVO(userInputVO.getUsername(), userInputVO.getPassword(), userInputVO.getRoleName(), ACTIVE_STATUS));
+
+		logger.info(userInputVO.getUsername() + " has been added to storage.");
+	}
+
+	public void removeUser(UserInputVO userInputVO) throws TradingPlatformException {
+		logger.trace("Start removeUser(" + userInputVO.getUsername() + ")");
+
+		checkIfUserExists(userInputVO.getUsername());
+		userDao.delete(userInputVO.getUsername());
+
+		logger.info(userInputVO.getUsername() + " has been removed from storage.");
+	}
+
+	public void banUser(UserInputVO userInputVO) throws TradingPlatformException {
+		logger.trace("Start banUser(" + userInputVO.getUsername() + ")");
+
+		checkIfUserExists(userInputVO.getUsername());
+		userVO = (UserVO) userDao.select(userInputVO.getUsername());
+		userVO.setStatus("inActive");
+		userDao.update(userVO);
+		logger.info(userInputVO.getUsername() + " has been added as banned to storage.");
+
+	}
+
+	public void unBanUser(UserInputVO userInputVO) throws TradingPlatformException {
+		logger.trace("unBanUser(" + userInputVO.getUsername() + ")");
+
+		checkIfUserExists(userInputVO.getUsername());
+		userVO = (UserVO) userDao.select(userInputVO.getUsername());
+		logger.debug(userInputVO.getUsername() + " status was=" + userVO.getStatus());
+		userVO.setStatus("active");
+		userDao.update(userVO);
+
+		logger.info(userInputVO.getUsername() + " has been added as unbanned to storage.");
+	}
+
+	public void updateUserPassword(UserInputVO userInputVO) throws TradingPlatformException {
+		logger.trace("updateUserPassword(" + userInputVO.getUsername() + "," + userInputVO.getPassword() + ")");
+
+		checkIfUserExists(userInputVO.getUsername());
+		if (!validate.password(userInputVO.getPassword()))
+			throw new PasswordPolicyException(TPMessage.PASSWORD_ERROR_MESSAGE);
+
+		userVO = (UserVO) userDao.select(userInputVO.getUsername());
+		userVO.setPassword(userInputVO.getPassword());
+		userDao.update(userVO);
+		logger.info(userInputVO.getUsername() + " has updated it's password to storage.");
+	}
+
+	public void updateUserRoleName(UserInputVO userInputVO) throws TradingPlatformException {
+		logger.trace("Start updateUserRoleName(" + userInputVO.getRoleName() + "," + "rolename");
+
+		checkIfUserExists(userInputVO.getUsername());
+		if (!validate.rolename(userInputVO.getRoleName().toLowerCase()))
+			throw new RolenamePolicyException(TPMessage.AVAILIABLE_ROLES);
+
+		userVO = (UserVO) userDao.select(userInputVO.getUsername());
+		logger.debug(userInputVO.getUsername() + " rolename was:" + userVO.getRolename() + " and is changed to " + userInputVO.getRoleName());
+		userVO.setRolename(userInputVO.getRoleName().toLowerCase());
+		userDao.update(userVO);
+		logger.info(userInputVO.getUsername() + " has updated it's rolename to storage.");
+	}
+
+	public Map<String, Databean> getUserRequests(String requestStatus) throws TradingPlatformException {
+		logger.trace("Start getUserRequests");
+
+		Map<String, Databean> allUserRequests = (Map<String, Databean>) userRequestDao.selectAll();
+		Map<String, Databean> returnedRequests = new HashMap<String, Databean>();
+
+	
+		for(String key : allUserRequests.keySet()){
+			userRequestVO = (UserRequestVO) allUserRequests.get(key);
+			if (userRequestVO.getAttribute("status").equals(requestStatus))
+				returnedRequests.put(userRequestVO.getAttribute("requestNumber"), userRequestVO);
+		}
+
+		return returnedRequests;
+
+	}
+
+	public Map<String, Databean> getAcceptedUserRequests(String administratorUsername) throws TradingPlatformException {
+
+		logger.trace("Start getAcceptedRequesats()");
+
+		Map<String, Databean> acceptedUserRequests = getUserRequests("accepted");
+		Map<String, Databean> returnedRequests = new HashMap<String, Databean>();
+		
+		for(String key : acceptedUserRequests.keySet()){
+			userRequestVO = (UserRequestVO) acceptedUserRequests.get(key);
+			if (userRequestVO.getAttribute("administrator").equals(administratorUsername)) {
+				returnedRequests.put(userRequestVO.getAttribute("requestNumber"), userRequestVO);
+				logger.debug("returned requests:add to hashmap:" + userRequestVO.getAttribute("requestNumber"));
+			}
+		}
+		return returnedRequests;
+	}
+
+	public void ChangeUserRequestStatus(String requestNumber, String username, String status) throws TradingPlatformException {
+		logger.trace("Start changeUserRequestStatus");
+		UserRequestVO userRequestVO = (UserRequestVO) userRequestDao.select(requestNumber);
+		
+		String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+
+		userRequestVO.setAttribute("administrator", username);
+		userRequestVO.setAttribute("status", status);
+		if(status.equals("accepted"))
+			userRequestVO.setAttribute("date-updated", timeStamp); 
+		else
+			userRequestVO.setAttribute("date-completed", timeStamp);
+		
+		userRequestDao.update(userRequestVO);
+		logger.trace("End changeUserRequestStatus");
+	}
+
+	private void checkIfUserExists(String username) throws TradingPlatformException {
+
+		if (!validate.username(username))
+			throw new UsernamePolicyException(properties.getProperty("USERNAME_ERROR_MESSAGE"));
+		if (userDao.select(username) == null)
+			throw new UserNotFoundException(username + " " + properties.getProperty("USER_NOT_FOUND"));
+	}
+
+}

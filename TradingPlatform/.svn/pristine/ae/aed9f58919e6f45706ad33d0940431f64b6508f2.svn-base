@@ -1,0 +1,19 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import org.apache.log4j.Logger;
+
+public abstract class AbstractAdminCommand {
+	protected static Logger logger = Logger.getLogger("log");
+
+	protected final String functionDescription;
+	
+	public AbstractAdminCommand(String functionDescription){
+		this.functionDescription=functionDescription;
+	}
+	
+	
+	public String getFunctionDescription() {
+		return functionDescription;
+	}
+
+}

@@ -1,0 +1,120 @@
+package com.fdm.tradingplatform.adminModule.control;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.adminModule.model.AdminManager;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.UserInputVO;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+
+import com.fdm.tradingplatform.model.UserClientToken;
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public class AdminController {
+	private static Logger logger = Logger.getLogger("log");
+	private iView displayManager;
+	private AdminManager adminManager;
+	private boolean isRunning;
+	private Helper helper;
+	private UserClientToken userClientToken;
+	private UserInputVO userInputVO;
+	private iAdminCommand action;
+	private Map<Integer, iAdminCommand> command;
+	private enum Menu {
+		ADD_USER(1), 
+		REMOVE_USER(2), 
+		BAN_USER(3), 
+		UNBAN_USER(4), 
+		UPDATE_USER_DETAILS(5), 
+		VIEW_OUTSTANDING_REQUESTS(6), 
+		VIEW_ASSIGNED_REQUESTS(7), 
+		VIEW_COMPLETED_REQUESTS(8), 
+		ASSIGN_USER_REQUEST(9), 
+		MARK_AS_COMPLETE(10), 
+		LOGOUT(11);
+		private final int optionValue;
+
+		Menu(int optionValue) {
+			this.optionValue = optionValue;
+		}
+
+		public int option() {
+			return optionValue;
+		}
+	}
+
+	public AdminController(UserClientToken userClientToken, iView viewManager, AdminManager adminManager) {
+		this.userClientToken = userClientToken;
+		this.displayManager = viewManager;
+		this.adminManager = adminManager;
+		logger.trace("new AdminController");
+	}
+
+	public void setup() {
+		logger.trace("Start setup()");
+		this.helper = new Helper(this.displayManager);
+
+		loadCommandMap();
+
+		if (helper.checkPermission(userClientToken, "adminScreen")) {
+			this.isRunning = true;
+			run();
+		} else
+			this.isRunning = false;
+
+		logger.trace("End startup()");
+	}
+
+	public void run() {
+		logger.trace("start run()");
+
+		while (this.isRunning) {
+			userInputVO = displayManager.displayMenuAndgetInput();
+			this.action = command.get(Integer.valueOf(userInputVO.getInputType()));
+
+			if (helper.checkPermission(userClientToken, action.getFunctionDescription()))
+				;
+			actionUserInput(userInputVO);
+		}
+
+		logger.trace("End run()");
+	}
+
+	private void actionUserInput(UserInputVO userInputVO) {
+		logger.trace("Start actionUserInput() with option:" + userInputVO.getInputType());
+
+		if (userInputVO.getInputType() == Menu.LOGOUT.option()) {
+			this.isRunning = false;
+		}
+
+		try {
+			action.execute(userClientToken, userInputVO, adminManager, displayManager);
+		} catch (TradingPlatformException e) {
+			displayManager.displayMessage(e.getMessage());
+		} catch (Exception e) {
+			displayManager.displayMessage(e.getMessage());
+		}
+
+		logger.trace("End actionUserInput(), isRunning=" + isRunning);
+	}
+
+	private void loadCommandMap() {
+
+		command = new HashMap<Integer, iAdminCommand>();
+		command.put(Menu.ADD_USER.option(), new AddUserAction());
+		command.put(Menu.REMOVE_USER.option(), new RemoveUserAction());
+		command.put(Menu.BAN_USER.option(), new BanUserAction());
+		command.put(Menu.UNBAN_USER.option(), new UnBanUserAction());
+		command.put(Menu.UPDATE_USER_DETAILS.option(), new UpdateUserDetailsAction());
+		command.put(Menu.VIEW_OUTSTANDING_REQUESTS.option(), new ViewOutstandingUserRequestsAction());
+		command.put(Menu.VIEW_ASSIGNED_REQUESTS.option(), new ViewAssignedUserRequestsAction());
+		command.put(Menu.VIEW_COMPLETED_REQUESTS.option(), new ViewCompletedUserRequestsAction());
+		command.put(Menu.ASSIGN_USER_REQUEST.option(), new AssignUserRequestAction());
+		command.put(Menu.MARK_AS_COMPLETE.option(), new MarkAsCompleteUserRequestAction());
+		command.put(Menu.LOGOUT.option(), new LogoutUserAction());
+
+	}
+
+}

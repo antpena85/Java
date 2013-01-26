@@ -1,0 +1,105 @@
+package com.fdm.tradingplatform.adminModule.view.ConsoleView;
+
+
+
+import org.apache.log4j.Logger;
+
+
+public class ConsoleView implements iView {
+	private static Logger logger = Logger.getLogger("log");
+
+	private DisplayUtility utility = new DisplayUtility();
+	private MainMenu mainMenu = new MainMenu(this.utility);
+	private AddUser addUser = new AddUser(this.utility);
+	private RemoveUser removeUser = new RemoveUser(this.utility);
+	private BanUser banUser = new BanUser(this.utility);
+	private UnBanUser unBanUser = new UnBanUser(this.utility);
+	private ViewUserRequests viewUserRequests = new ViewUserRequests(this.utility);
+	private UpdateUserDetails updateUserDetails = new UpdateUserDetails(this.utility);
+	
+	public UserInputVO displayMenuAndgetInput() {
+		logger.trace("start displayMenuAndGetInput()");
+
+		return (selectSubMenu(mainMenu.getUserInput()));
+	}
+
+	public String checkInput(String regex) {
+
+		boolean isIncorrect = true;
+
+		String choice = null;
+		while (isIncorrect) {
+			utility.displayMessage("Select a choice:");
+			choice = utility.readFromKeyboard();
+			logger.debug("choice=" + choice);
+			if (choice.matches(regex) && choice.length() > 0) {
+				isIncorrect = false;
+				logger.debug("isIncorrect=" + false);
+			} else {
+				utility.displayMessage("Invalid Choice - Please try again.\n");
+			}
+
+		}
+
+		return choice;
+	}
+
+	private UserInputVO selectSubMenu(int choiceSelected) {
+		logger.trace("Start SelectSubMenu(" + choiceSelected + ")");
+		UserInputVO userInputVO = new UserInputVO();
+
+		switch (choiceSelected) {
+
+		case 1:
+			userInputVO = addUser.getUserInput(userInputVO);
+			logger.debug("vo assigned from choice 1");
+			break;
+		case 2:
+			userInputVO = removeUser.getUserInput(userInputVO);
+			logger.debug("vo assigned from choice 2");
+			break;
+		case 3:
+			userInputVO = banUser.getUserInput(userInputVO);
+			logger.debug("vo assigned from choice 3");
+			break;
+		case 4:
+			userInputVO = unBanUser.getUserInput(userInputVO);
+			logger.debug("vo assigned from choice 4");
+			break;
+		case 5:
+			userInputVO = updateUserDetails.getUserInput(userInputVO);
+			logger.debug("vo assigned from choice 5");
+			break;
+		case 6:
+			userInputVO = viewUserRequests.getUserInput(userInputVO);
+			logger.debug("vo assigned from choice 6");
+			break;
+		case 7:
+			userInputVO = new UserInputVO();
+			logger.debug("vo assigned from choice 7");
+			break;
+		case 8:
+			userInputVO = new UserInputVO();
+			logger.debug("vo assigned from choice 8");
+			break;
+		case 9:
+			userInputVO = new UserInputVO();
+			logger.debug("vo assigned from choice 9");
+			break;
+
+		}
+
+		userInputVO.setInputType(choiceSelected);
+		logger.debug("vo.SetInputType=" + userInputVO.getInputType());
+		return userInputVO;
+
+	}
+
+	public void displayMessage(String message) {
+		logger.trace("Start displayMessage(" + message + ")");
+
+		utility.displayMessage(message);
+		utility.displayWaitForEnter();
+	}
+
+}

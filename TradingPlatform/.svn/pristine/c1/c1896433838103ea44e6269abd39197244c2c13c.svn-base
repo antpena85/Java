@@ -1,0 +1,19 @@
+package com.fdm.tradingplatform.model.storage;
+
+import java.util.Map;
+
+import com.fdm.tradingplatform.model.exception.TradingPlatformException;
+
+public interface iDao {
+
+	public Databean select(String primaryKey) throws TradingPlatformException;
+
+	public void insert(Databean bean) throws TradingPlatformException;
+
+	public void update(Databean bean) throws TradingPlatformException;
+
+	public void delete(String primaryKey) throws TradingPlatformException;
+
+	public Map<String,Databean> selectAll() throws TradingPlatformException;
+
+}

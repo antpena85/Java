@@ -1,0 +1,76 @@
+package com.fdm.tradingplatform.model.storage;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.fdm.tradingplatform.model.UserVO;
+
+public class UserXmlDao extends AbstractXmlDao implements iDao {
+
+	private static Logger logger = Logger.getLogger("log");
+
+	private static iDao firstInstance = null;
+
+	private UserXmlDao(String xmlFilePath) {
+
+		super(xmlFilePath, "users", "user", "userFields");
+		loadXml();
+		logger.debug("new UserXmlDao");
+	}
+
+	public static iDao getInstance(String xmlFilePath) {
+
+		if (firstInstance == null)
+			firstInstance = new UserXmlDao(xmlFilePath);
+
+		return firstInstance;
+	}
+
+	@Override
+	public Databean select(String primaryKey) {
+		logger.debug("select user:" + primaryKey);
+
+		return (Databean) storage.get(primaryKey);
+	}
+
+	@Override
+	public void insert(Databean bean) {
+
+		storage.put(bean.getAttribute("username"), bean);
+		saveXml();
+
+		logger.debug("insert user:" + bean.getAttribute("username"));
+	}
+
+	@Override
+	public void update(Databean bean) {
+
+		insert(bean);
+
+	}
+
+	@Override
+	public void delete(String primaryKey) {
+
+		storage.remove(primaryKey);
+		saveXml();
+
+		logger.debug("delete user:" + primaryKey);
+	}
+
+	@Override
+	protected void storeElement(Map xmlElement) {
+
+		storage.put((String) xmlElement.get("username"), new UserVO(xmlElement));
+
+		logger.debug("load user xml hashmap");
+	}
+
+	@Override
+	public Map<String,Databean> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,29 @@
+package com.fdm.tradingplatform.model;
+
+import java.util.Properties;
+
+import com.fdm.login.view.ConsoleViewLogin;
+import com.fdm.login.view.iViewLogin;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.ConsoleView;
+import com.fdm.tradingplatform.adminModule.view.ConsoleView.iView;
+
+public class ViewFactory {
+	
+	Properties properties = TradingPlatformProperties.getInstance();
+	
+	public iView getiView(){
+		
+		if(properties.getProperty("viewType").equals("CONSOLE"))
+			return new ConsoleView();
+			
+		return null;
+	}
+	
+	public iViewLogin getiViewLogin(){
+		if(properties.getProperty("viewType").equals("CONSOLE"))
+			return new ConsoleViewLogin();
+			
+		return null;
+	}
+
+}
