@@ -1,0 +1,128 @@
+#This variable contains the path that will hold users information.
+userXmlDaoFilePath=./xmlStorage/userxmlfiledao.xml
+
+#This variable contains the path that will hold roles
+roleXmlDaoFilePath=./xmlStorage/rolexml.xml
+
+#This variable contains the path that holds user requests
+userRequestXmlDaoFilePath=./xmlStorage/userrequestxml.xml
+
+#This variable defines the storage medium the application will use
+#Availiable [XML | DATABASE]
+storageMedium=XML
+
+#This variable defines the view that will be used
+#Availiable [CONSOLE | JSP]
+viewType=CONSOLE
+
+#This variable defines the View that the application will use
+view=ConsoleView
+
+#This variable holds the fields of the user xml file
+userFields=username;password;rolename;status
+
+#This variable holds the role fields in the role xml file
+roleFields=name;addUser;removeUser;changePermission;userRegistration;banUser;updateUserDetails;adminScreen;unBanUser;viewUserRequest;assignUserRequest;markAsCompleteUserRequest
+
+#this variable holds the requests fields in the request xml file
+requestFields=requestNumber;administrator;requestTitle;requestor;username;password;rolename;status;date-registered;date-completed;date-updated;additionalInfo
+
+#The Variables below will hold the TradingPlatform Policy that data must follow
+
+#Size of Usernames
+UsernamePolicyMinSize=5
+UsernamePolicyMaxSize=15
+
+#Size of Password
+PasswordPolicyMinSize=8
+PasswordPolicyMaxSize=15
+
+#Size of rolename
+RolenamePolicyMinSize=4
+RolenamePolicyMaxSize=25
+
+#Username regex
+UsernamePolicyRegex=[A-z]+[A-z|0-9]*
+
+#Database Used
+Database=oracle
+
+#Oracle Database url Inside FDM network
+#OracleDataBaseUrl=jdbc:oracle:thin:@ORABTN001:1521:xe
+
+#Oracle Database url outside FDM network
+OracleDataBaseUrl=jdbc:oracle:thin:@86.54.76.84:1521:xe
+
+#Oracle UserName
+OracleUsername=rahamimbenavraham
+
+#Oracle password
+OraclePassword=oracle
+
+#Oracle Driver
+OracleClassForName=oracle.jdbc.driver.OracleDriver
+
+#This variable will hold the experation time in milliseconds of the Database connection object
+experationTime=30000
+
+#============Queries====================
+SELECT_A_SINGLE_USER = SELECT username,password,rolename,status FROM USERS WHERE username=?
+INSERT_A_USER = INSERT INTO USERS (username,password,rolename,status) VALUES (?,?,?,?)
+UPDATE_A_USER =UPDATE USERS set username=?,password=?,rolename=?,status=? WHERE username=?
+DELETE_A_USER =DELETE FROM USERS WHERE username=?
+SELECT_ALL_ROLES=SELECT NAME,ADDUSER,REMOVEUSER,CHANGEPERMISSION,USERREGISTRATION,BANUSER,UPDATEUSERDETAILS,ADMINSCREEN,UNBANUSER,VIEWUSERREQUEST,ASSIGNUSERREQUEST,MARKASCOMPLETEUSERREQUEST FROM ROLES
+SELECT_A_SINGLE_ROLE=Select name,addUser,removeUser,changePermission,userRegistration,banUser,updateUserDetails,adminScreen,unbanUser,viewUserRequest,assignUserRequest,markAsCompleteUserRequest FROM ROLES where name=?
+SELECT_A_SINGLE_REQUEST =SELECT requestNumber,administrator,requestTitle,requestor,username,password,rolename,status,dateRegistered,dateCompleted,dateUpdated,additionalInfo FROM REQUESTS WHERE requestNumber=?
+SELECT_ALL_REQUESTS =Select requestNumber,administrator,requestTitle,requestor,username,password,rolename,status,dateRegistered,dateCompleted,dateUpdated,additionalInfo FROM REQUESTS
+UPDATE_USER_REQUEST = UPDATE REQUESTS set administrator=?,requestTitle=?,requestor=?,username=?,password=?,rolename=?,status=?,dateRegistered=?,dateCompleted=?,dateUpdated=?,additionalInfo=? WHERE requestNumber=?
+
+
+
+
+#=============MESSAGES===================
+CONTACT_ADMINISTRATOR_MESSAGE =There has been an error, please try again or contact the Systems Administrator.\n
+USER_NULL_VALUE =A Unknown value has tried to be persisted into storage, please try again or contact the Systems Administrator.\n
+USERNAME_ERROR_MESSAGE = \n-Usernames must contain between 8-15 alphanumeric characters and start with a english charachter.\n
+PASSWORD_ERROR_MESSAGE = \n-Passwords must comply with the following:\n\t1. Have at between 8-15 charachters.\n\t2. Have at least one capital letter.\n\t3. Have at least one letter.\n\t4. Have at least one number.\n
+UPDATE_ERROR = \nThere has been an error updating a user, please make sure the user exists.
+USER_NOT_FOUND =User was not found.\n
+USER_EXISTS = Someone already has that username. Try another?\n
+DATABASE_ERROR =The Database is not availiable at the moment, please contact Systems Administrator.
+SQL_ERROR_MESSAGE =There has been an Unexpected error. Please try again or contact the Systems Administrator.
+RUNTIME_ERROR_MESSAGE =There has been an Unexpected Error, please contact the Systems Administrator.
+NULLPOINTER_ERROR_MESSAGE=There was an error storing data,please try again.
+ILLEAGAL_ARGUMENT_MESSAGE =A data value whitch is not allowed cannot be stored, please try again.
+USERNAME_OR_PASSWORD_ERROR_MESSAGE =The username or password you entered is incorrect.\n
+USER_IS_BANNED_MESSAGE =User is Banned.
+HASHCODE_MISMATCH_MESSAGE = There has been an unexpected error, please login again.\n
+UNSUFFICIENT_PRIVLEDGE_MESSAGE = You do not have sufficient privledges to access this function.\n
+ADD_USER_SUCCESS= has been added successfully.\n
+NO_MORE_REQUESTS=There are no new User requests at the moment\n
+BAN_USER_SUCCESS = has successfully been banned.\n
+LOGOUT_MESSAGE = has been logged out.\n
+MARKED_AS_COMPLETED = has been marked as completed.\n
+DOES_NOT_HAVE_REQUESTS = does not have any assigned requests.\n
+REMOVE_USER_SUCCESS =  has successfully been removed.\n
+UNBAN_USER_SUCCESS =  has successfully been Unbanned.\n
+NO_ASSIGNED_REQUESTS = You do not have any requests assigned\n
+THREE_STRIKES_LOGIN_ATTEMPT = You have exceeded the acceptable amount of login attempts. GoodBye.
+LOGIN_SUCCESS = User has successfully logged in
+
+
+#======FUNCTION DESCRIPTIONS=======
+ADD_USER=addUser
+ASSIGN_USER_REQUEST=assignUserRequest
+BAN_USER=banUser
+LOGOUT=logout
+MARK_AS_COMPLETE=markAsCompleteUserRequest
+REMOVE_USER=removeUser
+UNBAN_USER=unBanUser
+UPDATE_USER_DETAILS=updateUserDetails
+VIEW_USER_REQUEST=viewUserRequest
+
+
+
+
+
+
+

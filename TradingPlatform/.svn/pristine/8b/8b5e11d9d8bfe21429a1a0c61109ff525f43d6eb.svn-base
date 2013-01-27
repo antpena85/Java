@@ -1,0 +1,1170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Trading platform log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 26 22:36:05 EST 2013<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>MainMenu.java:27</td>
+<td title="Message">new MainMenu</td>
+</tr>
+
+<tr>
+<td>12</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>AddUser.java:28</td>
+<td title="Message">new AddUser</td>
+</tr>
+
+<tr>
+<td>12</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>RemoveUser.java:27</td>
+<td title="Message">new removeUser</td>
+</tr>
+
+<tr>
+<td>14</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UnBanUser.java:29</td>
+<td title="Message">new UnBanUser()</td>
+</tr>
+
+<tr>
+<td>18</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UpdateUserPassword.java:29</td>
+<td title="Message">new UpdateUserDetails()</td>
+</tr>
+
+<tr>
+<td>19</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UpdateUserRole.java:27</td>
+<td title="Message">new UpdateUserDetails()</td>
+</tr>
+
+<tr>
+<td>28</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>LoginController.java:40</td>
+<td title="Message">Start setup()</td>
+</tr>
+
+<tr>
+<td>2516</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserVO.java:33</td>
+<td title="Message">new UserVO</td>
+</tr>
+
+<tr>
+<td>4461</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:103</td>
+<td title="Message">setUsername(katia)</td>
+</tr>
+
+<tr>
+<td>7730</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:117</td>
+<td title="Message">setPassword(Katia1234)</td>
+</tr>
+
+<tr>
+<td>7730</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AuthenticateAction.java:33</td>
+<td title="Message">Start executing login</td>
+</tr>
+
+<tr>
+<td>7730</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>UserDatabaseDao.java:34</td>
+<td title="Message">Starting Select a new User:katia</td>
+</tr>
+
+<tr>
+<td>7731</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserVO.java:33</td>
+<td title="Message">new UserVO</td>
+</tr>
+
+<tr>
+<td>8964</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:103</td>
+<td title="Message">setUsername(katia)</td>
+</tr>
+
+<tr>
+<td>8964</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:117</td>
+<td title="Message">setPassword(84c6ce3bb12a7fbac796d6e7277847246c2725)</td>
+</tr>
+
+<tr>
+<td>8964</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:79</td>
+<td title="Message">setrolename(administrator)</td>
+</tr>
+
+<tr>
+<td>8966</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:89</td>
+<td title="Message">setStatus(active)</td>
+</tr>
+
+<tr>
+<td>8967</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>UserDatabaseDao.java:59</td>
+<td title="Message">End Select a new User:katia</td>
+</tr>
+
+<tr>
+<td>10072</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserVO.java:33</td>
+<td title="Message">new UserVO</td>
+</tr>
+
+<tr>
+<td>11971</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:103</td>
+<td title="Message">setUsername(katia)</td>
+</tr>
+
+<tr>
+<td>14409</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:117</td>
+<td title="Message">setPassword(Katia123)</td>
+</tr>
+
+<tr>
+<td>14410</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AuthenticateAction.java:33</td>
+<td title="Message">Start executing login</td>
+</tr>
+
+<tr>
+<td>14410</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>UserDatabaseDao.java:34</td>
+<td title="Message">Starting Select a new User:katia</td>
+</tr>
+
+<tr>
+<td>14410</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserVO.java:33</td>
+<td title="Message">new UserVO</td>
+</tr>
+
+<tr>
+<td>14591</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:103</td>
+<td title="Message">setUsername(katia)</td>
+</tr>
+
+<tr>
+<td>14591</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:117</td>
+<td title="Message">setPassword(84c6ce3bb12a7fbac796d6e7277847246c2725)</td>
+</tr>
+
+<tr>
+<td>14591</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:79</td>
+<td title="Message">setrolename(administrator)</td>
+</tr>
+
+<tr>
+<td>14591</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:89</td>
+<td title="Message">setStatus(active)</td>
+</tr>
+
+<tr>
+<td>14592</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>UserDatabaseDao.java:59</td>
+<td title="Message">End Select a new User:katia</td>
+</tr>
+
+<tr>
+<td>14593</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:44</td>
+<td title="Message">Start getInstance()</td>
+</tr>
+
+<tr>
+<td>14593</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:40</td>
+<td title="Message">new UserLoginMap</td>
+</tr>
+
+<tr>
+<td>14593</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>14594</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:63</td>
+<td title="Message">Start addUserToLoginMapkatia</td>
+</tr>
+
+<tr>
+<td>14594</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>14594</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>UserDatabaseDao.java:34</td>
+<td title="Message">Starting Select a new User:katia</td>
+</tr>
+
+<tr>
+<td>14594</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserVO.java:33</td>
+<td title="Message">new UserVO</td>
+</tr>
+
+<tr>
+<td>14772</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:103</td>
+<td title="Message">setUsername(katia)</td>
+</tr>
+
+<tr>
+<td>14772</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:117</td>
+<td title="Message">setPassword(84c6ce3bb12a7fbac796d6e7277847246c2725)</td>
+</tr>
+
+<tr>
+<td>14772</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:79</td>
+<td title="Message">setrolename(administrator)</td>
+</tr>
+
+<tr>
+<td>14772</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserVO.java:89</td>
+<td title="Message">setStatus(active)</td>
+</tr>
+
+<tr>
+<td>14772</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>UserDatabaseDao.java:59</td>
+<td title="Message">End Select a new User:katia</td>
+</tr>
+
+<tr>
+<td>14949</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>RoleVO.java:43</td>
+<td title="Message">new roleVO(administrator)</td>
+</tr>
+
+<tr>
+<td>14950</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>14951</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>14951</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:47</td>
+<td title="Message">getHashCode()=-65308359</td>
+</tr>
+
+<tr>
+<td>14951</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserServerToken.java:37</td>
+<td title="Message">new userServerToken</td>
+</tr>
+
+<tr>
+<td>14951</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>14952</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:70</td>
+<td title="Message">User:katia has logged in.</td>
+</tr>
+
+<tr>
+<td>14952</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>UserClientToken.java:38</td>
+<td title="Message">created usertoken client token for:katia</td>
+</tr>
+
+<tr>
+<td>14953</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:47</td>
+<td title="Message">new AdminController</td>
+</tr>
+
+<tr>
+<td>14953</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:51</td>
+<td title="Message">Start setup()</td>
+</tr>
+
+<tr>
+<td>14954</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:44</td>
+<td title="Message">Start getInstance()</td>
+</tr>
+
+<tr>
+<td>14962</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>14962</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Helper.java:40</td>
+<td title="Message">Start checkPermission(katia,adminScreen</td>
+</tr>
+
+<tr>
+<td>14962</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>14963</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Helper.java:47</td>
+<td title="Message">Attempting to run check permissions for:katia. Function name=adminScreen Users permission for this is:y</td>
+</tr>
+
+<tr>
+<td>14963</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="log category">log</td>
+<td>Helper.java:52</td>
+<td title="Message">katia has been granted access for function:adminScreen</td>
+</tr>
+
+<tr>
+<td>14963</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:47</td>
+<td title="Message">getHashCode()=-65308359</td>
+</tr>
+
+<tr>
+<td>14963</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:66</td>
+<td title="Message">start run()</td>
+</tr>
+
+<tr>
+<td>14963</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>ConsoleView.java:49</td>
+<td title="Message">start displayMenuAndGetInput()</td>
+</tr>
+
+<tr>
+<td>14963</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>MainMenu.java:31</td>
+<td title="Message">Start getUserInput()</td>
+</tr>
+
+<tr>
+<td>14964</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Menu.java:27</td>
+<td title="Message">checkInput()</td>
+</tr>
+
+<tr>
+<td>14964</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>MainMenu.java:37</td>
+<td title="Message">Start display Menu</td>
+</tr>
+
+<tr>
+<td>14964</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(**********************************
+)</td>
+</tr>
+
+<tr>
+<td>14964</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14964</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(    SYSTEMS ADMINISTRATOR MENU
+)</td>
+</tr>
+
+<tr>
+<td>14964</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14970</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(**********************************
+)</td>
+</tr>
+
+<tr>
+<td>14970</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14970</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(1. Add new User
+)</td>
+</tr>
+
+<tr>
+<td>14970</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14971</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(2. Remove existing User
+)</td>
+</tr>
+
+<tr>
+<td>14971</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14971</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(3. Ban existing User
+)</td>
+</tr>
+
+<tr>
+<td>14971</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14971</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(4. Unban existing User
+)</td>
+</tr>
+
+<tr>
+<td>14971</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14971</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(5. Update User Password
+)</td>
+</tr>
+
+<tr>
+<td>14972</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14972</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(6. Update User Role
+)</td>
+</tr>
+
+<tr>
+<td>14972</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14972</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(7. View outstanding user requests
+)</td>
+</tr>
+
+<tr>
+<td>14972</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14972</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(8. View assigned user requests
+)</td>
+</tr>
+
+<tr>
+<td>14972</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14972</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(9. View completed user requests
+)</td>
+</tr>
+
+<tr>
+<td>14972</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14973</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(10. Assign a User Requests
+)</td>
+</tr>
+
+<tr>
+<td>14973</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14973</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(11. Mark a User Requests as completed
+)</td>
+</tr>
+
+<tr>
+<td>14973</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14973</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(12. Logout
+)</td>
+</tr>
+
+<tr>
+<td>14973</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14973</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(Enter Choice:)</td>
+</tr>
+
+<tr>
+<td>14973</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>14974</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:49</td>
+<td title="Message">Start readFromKeyboard()</td>
+</tr>
+
+<tr>
+<td>17393</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>Menu.java:34</td>
+<td title="Message">selected choice=12  regex=1|2|3|4|5|6|7|8|9|10|11|12</td>
+</tr>
+
+<tr>
+<td>17394</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>Menu.java:37</td>
+<td title="Message">isIncorrect=false</td>
+</tr>
+
+<tr>
+<td>17394</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Menu.java:45</td>
+<td title="Message">end checkInput(), choice=12</td>
+</tr>
+
+<tr>
+<td>17394</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>ConsoleView.java:75</td>
+<td title="Message">Start SelectSubMenu(12)</td>
+</tr>
+
+<tr>
+<td>17395</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>ConsoleView.java:126</td>
+<td title="Message">vo assigned from choice 11</td>
+</tr>
+
+<tr>
+<td>17395</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:69</td>
+<td title="Message">setInputType=null</td>
+</tr>
+
+<tr>
+<td>17396</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:64</td>
+<td title="Message">getInputType=12</td>
+</tr>
+
+<tr>
+<td>17396</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#339933">DEBUG</font></td>
+<td title="log category">log</td>
+<td>ConsoleView.java:131</td>
+<td title="Message">vo.SetInputType=12</td>
+</tr>
+
+<tr>
+<td>17396</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:64</td>
+<td title="Message">getInputType=12</td>
+</tr>
+
+<tr>
+<td>17396</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>17396</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Helper.java:40</td>
+<td title="Message">Start checkPermission(katia,logout</td>
+</tr>
+
+<tr>
+<td>17396</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>17396</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>Helper.java:47</td>
+<td title="Message">Attempting to run check permissions for:katia. Function name=logout Users permission for this is:null</td>
+</tr>
+
+<tr>
+<td>17396</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:47</td>
+<td title="Message">getHashCode()=-65308359</td>
+</tr>
+
+<tr>
+<td>17396</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:64</td>
+<td title="Message">getInputType=12</td>
+</tr>
+
+<tr>
+<td>17397</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>AdminController.java:81</td>
+<td title="Message">Start actionUserInput() with option:12</td>
+</tr>
+
+<tr>
+<td>17397</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserInputVO.java:64</td>
+<td title="Message">getInputType=12</td>
+</tr>
+
+<tr>
+<td>17397</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>LogoutUserAction.java:36</td>
+<td title="Message">Start execute</td>
+</tr>
+
+<tr>
+<td>17397</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:44</td>
+<td title="Message">Start getInstance()</td>
+</tr>
+
+<tr>
+<td>17397</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>17397</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserLoginMap.java:57</td>
+<td title="Message">removeUserFromLoginMap(katia)</td>
+</tr>
+
+<tr>
+<td>17397</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>17397</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>UserClientToken.java:42</td>
+<td title="Message">getUserName()=katia</td>
+</tr>
+
+<tr>
+<td>17398</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>ConsoleView.java:137</td>
+<td title="Message">Start displayMessage(
+katiahas been logged out.
+)</td>
+</tr>
+
+<tr>
+<td>17398</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(
+katiahas been logged out.
+)</td>
+</tr>
+
+<tr>
+<td>17398</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>17398</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:31</td>
+<td title="Message">Start displayMessage(
+Press 'Enter' to continue.
+)</td>
+</tr>
+
+<tr>
+<td>17398</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:35</td>
+<td title="Message">End displayMessage()</td>
+</tr>
+
+<tr>
+<td>17398</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="log category">log</td>
+<td>DisplayUtility.java:49</td>
+<td title="Message">Start readFromKeyboard()</td>
+</tr>
